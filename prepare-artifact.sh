@@ -2,10 +2,12 @@
 
 set -e
 
+cd artifact
+
 # Prepare Docker image
-#docker build --progress=plain -f Dockerfile -t mallob-cav26 .
-#docker save -o mallob-cav26-img.tar mallob-cav26
-#gzip -9 mallob-cav26-img.tar
+docker build --progress=plain -f ../Dockerfile -t mallob-cav26 .
+docker save -o mallob-cav26-img.tar mallob-cav26
+gzip -9 mallob-cav26-img.tar
 
 # Prepare bare-metal Mallob installation
 git clone https://github.com/domschrei/mallob mallob-cav26
@@ -21,4 +23,4 @@ cd mallob-cav26
     rm -rf build
     for d in lib/*/ ; do cd $d ; bash clean.sh ; cd ../.. ; done
 cd ..
-zip -r mallob.zip mallob-cav26
+zip -r mallob-cav26.zip mallob-cav26
