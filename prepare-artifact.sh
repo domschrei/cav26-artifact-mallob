@@ -1,0 +1,25 @@
+#!/bin/bash
+
+set -e
+
+# Prepare Docker image
+docker build --progress=plain -f Dockerfile -t mallob-cav26 .
+docker save -o mallob-cav26-img.tar mallob-cav26
+gzip -9 mallob-cav26-img.tar
+
+exit
+
+# Prepare bare-metal Mallob installation
+git clone https://github.com/domschrei/mallob mallob-cav26
+cd mallob-cav26
+    git checkout d64483557ab76cd6b524e93f206e267861ca1fe0
+
+    # Need to call the build script so that all dependencies are fetched
+    bash scripts/setup/cmake-make.sh build \
+    -DMALLOB_MAX_N_APPTHREADS_PER_PROCESS=64 -DMALLOB_APP_SMT=1 -DMALLOB_APP_MAXSAT=1 \
+    -DMALLOB_BUILD_IMPCHECK=1
+
+    # Then remove the actual installation files manually
+    rm -rf build
+    for d in lib/*/ ; do cd $d ; bash clean.sh ; cd ../.. ; done
+cd ..
