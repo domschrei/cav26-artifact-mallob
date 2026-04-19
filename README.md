@@ -1,12 +1,12 @@
-CAV 2026 Artifact
-=======================================
-Paper title: Mallob: Scalable Automated Reasoning On Demand
 
-Claimed badges: Available + Functional + Reusable
+# CAV 2026 Artifact
+
+Paper title: **Mallob: Scalable Automated Reasoning On Demand**  
+Claimed badges: **Available + Functional + Reusable**  
 
 Justification for the badges:
 
-  * Functional: [give reasons why you believe that the Functional badge should
+  * **Functional:** [give reasons why you believe that the Functional badge should
     be awarded (if applied for Functional or Reusable); example:  The artifact
     replicates most of the results in the paper (see below for details).  It
     compiles Tool and executes the benchmarks on it and the other tools.  We
@@ -37,7 +37,7 @@ Justification for the badges:
                  they can reproduce the results by point (6) below.
       ]
 
-  * Reusable: [give reasons why you believe that the Reusable badge should be
+  * **Reusable:** [give reasons why you believe that the Reusable badge should be
     awarded (if applied for); e.g., The license of Tool is GNU GPLv3.  Tool is
     provided with an extensive test suite (in /tool/tests/) and documentation
     (in /tool/doc after the tool is compiled).
@@ -54,9 +54,8 @@ Requirements:
 
 external connectivity: NO
 
--------------------------------------------------------------------------------
-**                                SMOKE TEST                                 **
--------------------------------------------------------------------------------
+
+## Docker Image Setup
 
 - Import the docker image from `mallob-cav26-img.tar.gz`:
 
@@ -81,6 +80,8 @@ external connectivity: NO
  - Execute the command `exit` to leave the shell and exit the image at any
    point.
 
+
+## Smoke Test
 
 Start the smoke test with
 
@@ -153,9 +154,8 @@ $HOME/artifact/smoke.log and try to identify something extraordinary (e.g. by
 comparing it to the file ref_output_smoke/smoke.log.ref) and include the part
 of the log in the review.
 
--------------------------------------------------------------------------------
-**                               FULL REVIEW                                 **
--------------------------------------------------------------------------------
+
+## Full Review
 
 [below is an example of how to write this section; delete it and substitute
 with your instructions]
@@ -228,3 +228,11 @@ In the following outputs, concrete values may differt but the overall trends
     ./generate_fig5.sh output_acme.csv
 
     the resulting figure will be in results/fig5.gif
+
+
+## Bare Metal Setup
+
+```bash
+cd mallob
+bash scripts/setup/cmake-make.sh build -DMALLOB_MAX_N_APPTHREADS_PER_PROCESS=64 -DMALLOB_APP_SMT=1 -DMALLOB_APP_MAXSAT=1 -DMALLOB_BUILD_IMPCHECK=1
+```
