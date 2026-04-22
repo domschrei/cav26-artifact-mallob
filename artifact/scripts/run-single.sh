@@ -44,9 +44,11 @@ fi
 echo "Executing: $cmd"
 
 $cmd
-sleep 1
 
 # check monolithic proof as needed
 if [ "x$MONOPROOF" == "x1" ] && [ -f $globallogdir/res.txt ] && grep -qE "^s UNSATISFIABLE$" $globallogdir/res.txt ; then
   build/standalone_lrat_checker $input $globallogdir/proof.rlrup --reversed > $globallogdir/chk.txt
+fi
+if [ -f $globallogdir/proof.rlrup ]; then
+  rm $globallogdir/proof.rlrup
 fi

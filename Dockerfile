@@ -7,7 +7,7 @@ RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt install -y git cmake build-essential zlib1g-dev \
 libopenmpi-dev wget unzip build-essential zlib1g-dev cmake python3 build-essential \
 gfortran wget curl libjemalloc-dev libjemalloc2 gdb psmisc \
-meson python3-mesonpy ninja-build libgmp-dev pkgconf libmpfr-dev cargo
+meson python3-mesonpy ninja-build libgmp-dev pkgconf libmpfr-dev cargo bc
 
 WORKDIR /app
 COPY ./benchmarks benchmarks
