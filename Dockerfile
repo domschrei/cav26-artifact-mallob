@@ -10,6 +10,7 @@ gfortran wget curl libjemalloc-dev libjemalloc2 gdb psmisc \
 meson python3-mesonpy ninja-build libgmp-dev pkgconf libmpfr-dev cargo
 
 WORKDIR /app
+COPY ./benchmarks benchmarks
 
 # Fetch Mallob
 RUN git clone https://github.com/domschrei/mallob && cd mallob && git checkout \
@@ -19,3 +20,5 @@ d64483557ab76cd6b524e93f206e267861ca1fe0
 RUN cd mallob && bash scripts/setup/cmake-make.sh build \
 -DMALLOB_MAX_N_APPTHREADS_PER_PROCESS=64 -DMALLOB_APP_SMT=1 -DMALLOB_APP_MAXSAT=1 \
 -DMALLOB_BUILD_IMPCHECK=1
+
+COPY ./scripts scripts
