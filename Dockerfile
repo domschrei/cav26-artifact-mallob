@@ -3,7 +3,7 @@ FROM ubuntu:24.04
 USER root
 
 #  Install required softwares
-RUN apt-get update
+RUN apt update
 RUN DEBIAN_FRONTEND=noninteractive apt install -y git cmake build-essential zlib1g-dev \
 libopenmpi-dev wget unzip build-essential zlib1g-dev cmake python3 build-essential \
 gfortran wget curl libjemalloc-dev libjemalloc2 gdb psmisc \
@@ -14,7 +14,7 @@ COPY ./benchmarks benchmarks
 
 # Fetch Mallob
 RUN git clone https://github.com/domschrei/mallob && cd mallob && git checkout \
-d64483557ab76cd6b524e93f206e267861ca1fe0
+dbd4a35643fcbbee6c32e169016b2c17c595e2ee
 
 # Build Mallob (fetching and building all dependencies)
 RUN cd mallob && bash scripts/setup/cmake-make.sh build \

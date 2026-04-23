@@ -10,10 +10,13 @@ mkdir -p "$basedir"
 exec > >(tee -a "$basedir/log.txt")
 
 
+suite_idx=0 # counter for different suites
+
 function banner_run_suite() {
+    suite_idx=$(($suite_idx + 1))
     echo
     echo "************************************************************"
-    echo "RUNNING SUITE $@"
+    echo "RUNNING SUITE $suite_idx/$suite_count - $@"
     echo "************************************************************"
     echo
 }

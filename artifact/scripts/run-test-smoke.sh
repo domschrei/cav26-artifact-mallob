@@ -7,40 +7,48 @@ export NPROCS=2
 export NTHREADS=4
 export TIMELIM=10
 
-banner_run_suite "1/8 - SAT Solving, mixed portfolio"
-BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/1-sat-mixed/ \
+suite_count=1 # number of experiments
+
+if false; then
+banner_run_suite "SAT solving, mixed portfolio"
+BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-sat-mixed/ \
 scripts/run-benchmark.sh -mono-app=SAT -satsolver=kcl
 
-banner_run_suite "2/8 - SAT Solving, monolithic proof production"
-BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/2-sat-monolproof/ \
+banner_run_suite "SAT solving, monolithic proof production"
+BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-sat-monolproof/ \
 MONOPROOF=1 scripts/run-benchmark.sh -mono-app=SAT
 
-banner_run_suite "3/8 - SAT Solving, real-time proof checking"
-BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/3-sat-rtcheck/ \
+banner_run_suite "SAT solving, real-time proof checking"
+BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-sat-rtcheck/ \
 scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=1
 
-banner_run_suite "4/8 - SAT Solving, streamlined preprocessing"
-BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/4-sat-streamlined/ \
+banner_run_suite "SAT solving, streamlined preprocessing"
+BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-sat-streamlined/ \
 scripts/run-benchmark.sh -mono-app=SATWITHPRE -pl=1
 
-banner_run_suite "5/8 - Incremental SAT Solving"
-BENCHMARKFILE=scripts/selection-incsat-smoke.txt BASEDIR=$basedir/5-incsat/ \
+banner_run_suite "Incremental SAT solving"
+BENCHMARKFILE=scripts/selection-incsat-smoke.txt BASEDIR=$basedir/$suite_idx-incsat/ \
 scripts/run-benchmark.sh -mono-app=INCSAT
 
-banner_run_suite "6/8 - Incremental SAT Solving, real-time proof checking"
-BENCHMARKFILE=scripts/selection-incsat-smoke.txt BASEDIR=$basedir/6-incsat-rtcheck/ \
+banner_run_suite "Incremental SAT solving, real-time proof checking"
+BENCHMARKFILE=scripts/selection-incsat-smoke.txt BASEDIR=$basedir/$suite_idx-incsat-rtcheck/ \
 scripts/run-benchmark.sh -mono-app=INCSAT -otfc=1 -otfci=1
 
-banner_run_suite "7/8 - MaxSAT Solving"
-BENCHMARKFILE=scripts/selection-maxsat-smoke.txt BASEDIR=$basedir/7-maxsat/ \
+banner_run_suite "MaxSAT solving"
+BENCHMARKFILE=scripts/selection-maxsat-smoke.txt BASEDIR=$basedir/$suite_idx-maxsat/ \
 scripts/run-benchmark.sh -mono-app=MAXSAT -maxsat-searchers=1
 
-banner_run_suite "8/8 - SMT Solving"
-BENCHMARKFILE=scripts/selection-smt-smoke.txt BASEDIR=$basedir/8-smt/ \
+banner_run_suite "SMT solving"
+BENCHMARKFILE=scripts/selection-smt-smoke.txt BASEDIR=$basedir/$suite_idx-smt/ \
 scripts/run-benchmark.sh -mono-app=SMT
+fi
 
-# TODO SCHEDULING VIA LIST
-
-# TODO SCHEDULING ON DEMAND??
+banner_run_suite "Scheduling"
+NPROCS=32 NTHREADS=1 TIMELIM=120 \
+BENCHMARKFILE=scripts/selection-none.txt BASEDIR=$basedir/$suite_idx-scheduling/ \
+MPIPARAMS="--oversubscribe" \
+scripts/run-benchmark.sh -mono-app=SAT -job-desc-template=$(pwd)/scripts/selection-sat-smoke.txt \
+-job-template=templates/tj.json -client-template=templates/tc.json -c=1 \
+-J=$(cat $(pwd)/scripts/selection-sat-smoke.txt | wc -l) -ajpc=5 -jwl=60
 
 banner_run_done

@@ -31,7 +31,7 @@ if echo "$input" | grep -qE '.xz$'; then
   echo "Using decompressed input $input"
 fi
 
-cmd="mpirun --mca btl_tcp_if_include eth0 --allow-run-as-root -np $NPROCS --bind-to none\
+cmd="mpirun --mca btl_tcp_if_include eth0 --allow-run-as-root -np $NPROCS --bind-to none $MPIPARAMS\
  build/mallob -mono=$input -jwl=$TIMELIM -T=$(($TIMELIM+10)) -wam=10``000 -pre-cleanup=1\
  -q=1 -log=$globallogdir -tmp=$localtmpdir -proof-dir=$localtmpdir/proof -sro=${globallogdir}/processed-jobs.out\
  -trace-dir=${globallogdir}/ -os=1 -v=4 -iff=0 -s2f=${globallogdir}/res.txt -smt-out-file=${globallogdir}/out.smt2\

@@ -31,7 +31,7 @@ for id in $(seq 1 $ninputs); do
     mkdir $basedir/$id
 
     echo "$(date) BEGIN $id/$ninputs $input"
-    LOGDIR="$(cd $basedir/$id && pwd)" scripts/run-single.sh $input $@
+    LOGDIR="$(cd $basedir/$id && pwd)" scripts/run-single.sh "$input" $@
     echo "$(date) END $id/$ninputs $input"
     echo
 done
