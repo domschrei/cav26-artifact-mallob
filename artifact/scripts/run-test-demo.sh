@@ -2,49 +2,106 @@
 
 source scripts/setup-for-runs.sh
 
-banner_run_suite "1/8 - SAT Solving, mixed portfolio"
-BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/1-sat-mixed/ \
-NPROCS=1 NTHREADS=32 TIMELIM=300 \
+suite_count=16 # number of experiments
+
+
+# Single-core baselines
+
+banner_run_suite "[1x] SAT solving, mixed portfolio"
+BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/$suite_idx-sat-mixed/ \
+NPROCS=1 NTHREADS=1 TIMELIM=300 \
 scripts/run-benchmark.sh -mono-app=SAT -satsolver=kcl
 
-banner_run_suite "2/8 - SAT Solving, monolithic proof production"
-BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/2-sat-monolproof/ \
-NPROCS=1 NTHREADS=32 TIMELIM=300 \
+banner_run_suite "[1x] SAT solving, monolithic proof production"
+BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/$suite_idx-sat-monolproof/ \
+NPROCS=1 NTHREADS=1 TIMELIM=300 \
 MONOPROOF=1 scripts/run-benchmark.sh -mono-app=SAT
 
-banner_run_suite "3/8 - SAT Solving, real-time proof checking"
-BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/3-sat-rtcheck/ \
-NPROCS=1 NTHREADS=32 TIMELIM=300 \
+banner_run_suite "[1x] SAT solving, real-time proof checking"
+BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/$suite_idx-sat-rtcheck/ \
+NPROCS=1 NTHREADS=1 TIMELIM=300 \
 scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=1
 
-banner_run_suite "4/8 - SAT Solving, streamlined preprocessing"
-BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/4-sat-streamlined/ \
-NPROCS=4 NTHREADS=8 TIMELIM=300 \
+banner_run_suite "[1x] SAT solving, streamlined preprocessing"
+BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/$suite_idx-sat-streamlined/ \
+NPROCS=1 NTHREADS=1 TIMELIM=300 \
 scripts/run-benchmark.sh -mono-app=SATWITHPRE -pl=1
 
-banner_run_suite "5/8 - Incremental SAT Solving"
-BENCHMARKFILE=scripts/selection-incsat-demo.txt BASEDIR=$basedir/5-incsat/ \
-NPROCS=1 NTHREADS=32 TIMELIM=300 \
+banner_run_suite "[1x] Incremental SAT solving"
+BENCHMARKFILE=scripts/selection-incsat-demo.txt BASEDIR=$basedir/$suite_idx-incsat/ \
+NPROCS=1 NTHREADS=1 TIMELIM=300 \
 scripts/run-benchmark.sh -mono-app=INCSAT
 
-banner_run_suite "6/8 - Incremental SAT Solving, real-time proof checking"
-BENCHMARKFILE=scripts/selection-incsat-demo.txt BASEDIR=$basedir/6-incsat-rtcheck/ \
+banner_run_suite "[1x] Incremental SAT solving, real-time proof checking"
+BENCHMARKFILE=scripts/selection-incsat-demo.txt BASEDIR=$basedir/$suite_idx-incsat-rtcheck/ \
 NPROCS=1 NTHREADS=32 TIMELIM=300 \
 scripts/run-benchmark.sh -mono-app=INCSAT -otfc=1 -otfci=1
 
-banner_run_suite "7/8 - MaxSAT Solving"
-BENCHMARKFILE=scripts/selection-maxsat-demo.txt BASEDIR=$basedir/7-maxsat/ \
+banner_run_suite "[1x] MaxSAT solving"
+BENCHMARKFILE=scripts/selection-maxsat-demo.txt BASEDIR=$basedir/$suite_idx-maxsat/ \
+NPROCS=1 NTHREADS=1 TIMELIM=300 \
+scripts/run-benchmark.sh -mono-app=MAXSAT -maxsat-searchers=1
+
+banner_run_suite "[1x] SMT solving"
+BENCHMARKFILE=scripts/selection-smt-demo.txt BASEDIR=$basedir/$suite_idx-smt/ \
+NPROCS=1 NTHREADS=1 TIMELIM=300 \
+scripts/run-benchmark.sh -mono-app=SMT
+
+
+# 32-core runs
+
+banner_run_suite "[32x] SAT solving, mixed portfolio"
+BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/$suite_idx-sat-mixed/ \
+NPROCS=1 NTHREADS=32 TIMELIM=300 \
+scripts/run-benchmark.sh -mono-app=SAT -satsolver=kcl
+
+banner_run_suite "[32x] SAT solving, monolithic proof production"
+BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/$suite_idx-sat-monolproof/ \
+NPROCS=1 NTHREADS=32 TIMELIM=300 \
+MONOPROOF=1 scripts/run-benchmark.sh -mono-app=SAT
+
+banner_run_suite "[32x] SAT solving, real-time proof checking"
+BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/$suite_idx-sat-rtcheck/ \
+NPROCS=1 NTHREADS=32 TIMELIM=300 \
+scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=1
+
+banner_run_suite "[32x] SAT solving, streamlined preprocessing"
+BENCHMARKFILE=scripts/selection-sat-demo.txt BASEDIR=$basedir/$suite_idx-sat-streamlined/ \
+NPROCS=4 NTHREADS=8 TIMELIM=300 \
+scripts/run-benchmark.sh -mono-app=SATWITHPRE -pl=1
+
+banner_run_suite "[32x] Incremental SAT solving"
+BENCHMARKFILE=scripts/selection-incsat-demo.txt BASEDIR=$basedir/$suite_idx-incsat/ \
+NPROCS=1 NTHREADS=32 TIMELIM=300 \
+scripts/run-benchmark.sh -mono-app=INCSAT
+
+banner_run_suite "[32x] Incremental SAT solving, real-time proof checking"
+BENCHMARKFILE=scripts/selection-incsat-demo.txt BASEDIR=$basedir/$suite_idx-incsat-rtcheck/ \
+NPROCS=1 NTHREADS=32 TIMELIM=300 \
+scripts/run-benchmark.sh -mono-app=INCSAT -otfc=1 -otfci=1
+
+banner_run_suite "[32x] MaxSAT solving"
+BENCHMARKFILE=scripts/selection-maxsat-demo.txt BASEDIR=$basedir/$suite_idx-maxsat/ \
 NPROCS=8 NTHREADS=4 TIMELIM=300 \
 scripts/run-benchmark.sh -mono-app=MAXSAT -maxsat-searchers=4 -maxsat-focus-period=15 -cjc=1
 
-banner_run_suite "8/8 - SMT Solving"
-BENCHMARKFILE=scripts/selection-smt-demo.txt BASEDIR=$basedir/8-smt/ \
+banner_run_suite "[32x] SMT solving"
+BENCHMARKFILE=scripts/selection-smt-demo.txt BASEDIR=$basedir/$suite_idx-smt/ \
 NPROCS=8 NTHREADS=4 TIMELIM=300 \
 scripts/run-benchmark.sh -mono-app=SMT
 
-# TODO SCHEDULING VIA LIST
 
-# TODO SCHEDULING ON DEMAND??
+# Some scaling for scheduling experiments
+
+for p in 4 32 ; do
+    banner_run_suite "[${p}x] Scheduling"
+    NPROCS=$p NTHREADS=1 TIMELIM=1800 \
+    BENCHMARKFILE=scripts/selection-none.txt BASEDIR=$basedir/$suite_idx-scheduling/ \
+    MPIPARAMS="--oversubscribe" \
+    scripts/run-benchmark.sh -mono-app=SAT -job-desc-template=$(pwd)/scripts/selection-sat-demo.txt \
+    -job-template=templates/tj.json -client-template=templates/tc.json -c=1 \
+    -J=$(cat $(pwd)/scripts/selection-sat-demo.txt | wc -l) -ajpc=4 -jwl=300
+done
+
 
 banner_run_done
-

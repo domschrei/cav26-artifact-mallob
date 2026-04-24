@@ -91,6 +91,17 @@ NPROCS=8 NTHREADS=4 TIMELIM=60 \
 scripts/run-benchmark.sh -mono-app=SMT
 
 
+# Some scaling for scheduling experiments
+
+for p in 4 32 ; do
+    banner_run_suite "[${p}x] Scheduling"
+    NPROCS=$p NTHREADS=1 TIMELIM=1800 \
+    BENCHMARKFILE=scripts/selection-none.txt BASEDIR=$basedir/$suite_idx-scheduling/ \
+    MPIPARAMS="--oversubscribe" \
+    scripts/run-benchmark.sh -mono-app=SAT -job-desc-template=$(pwd)/scripts/selection-sat-demo-small.txt \
+    -job-template=templates/tj.json -client-template=templates/tc.json -c=1 \
+    -J=$(cat $(pwd)/scripts/selection-sat-demo-small.txt | wc -l) -ajpc=4 -jwl=60
+done
+
+
 banner_run_done
-
-
