@@ -90,9 +90,6 @@ BENCHMARKFILE=scripts/selection-smt-demo-small.txt BASEDIR=$basedir/$suite_idx-s
 NPROCS=8 NTHREADS=4 TIMELIM=60 \
 scripts/run-benchmark.sh -mono-app=SMT
 
-# TODO SCHEDULING VIA LIST
-
-# TODO SCHEDULING ON DEMAND??
 
 banner_run_done
 

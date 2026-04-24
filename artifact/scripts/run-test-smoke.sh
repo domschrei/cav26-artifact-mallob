@@ -9,7 +9,6 @@ export TIMELIM=10
 
 suite_count=1 # number of experiments
 
-if false; then
 banner_run_suite "SAT solving, mixed portfolio"
 BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-sat-mixed/ \
 scripts/run-benchmark.sh -mono-app=SAT -satsolver=kcl
@@ -41,7 +40,6 @@ scripts/run-benchmark.sh -mono-app=MAXSAT -maxsat-searchers=1
 banner_run_suite "SMT solving"
 BENCHMARKFILE=scripts/selection-smt-smoke.txt BASEDIR=$basedir/$suite_idx-smt/ \
 scripts/run-benchmark.sh -mono-app=SMT
-fi
 
 banner_run_suite "Scheduling"
 NPROCS=32 NTHREADS=1 TIMELIM=120 \
