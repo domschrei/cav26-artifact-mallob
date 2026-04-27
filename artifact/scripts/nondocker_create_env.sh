@@ -32,37 +32,65 @@ else
     fi
 fi
 
+spack env activate mallob_env
 
 if [ "$create" -eq 1 ]; then
 
-	spack env activate mallob_env
-	spack add cmake gcc jemalloc openmpi curl gdb meson
+	spack add cmake gcc jemalloc openmpi curl gdb 
+	# spack add binutils 
+	spack add meson autoconf automake libtool rust
+
+
+	# spack add gmp
+	# spack add mpfr
+	# spack add zlib
+	# spack add pkgconf
+
+	# spack add bison
+	# spack add flex
+
+	# spack add meson autoconf automake libtool rust
+
+	#necessary for Palrup !
+	# spack add elfutils
+	# spack add binutils +lto +plugins +ld
+
 	echo "Installing. Might take 1-2min."
 	spack concretize
 	spack install -j 32
 
 fi
 
-	#Verify
-	echo ""
-	echo GDB
-	echo $(gdb --version)
-	echo ""
-	echo JEMALLOC
-	echo $(jemalloc-config --version)
-	echo ""
-	echo CMAKE
-	echo $(cmake --version)
-	echo ""
-	echo MAKE
-	echo $(make --version)
-	echo ""
-	echo GCC
-	echo $(gcc --version)
-	echo "" 
-	echo MESON
-	echo $(meson --version)
-	echo "" 
+#Verify
+echo ""
+echo GDB
+echo $(gdb --version)
+echo ""
+echo JEMALLOC
+echo $(jemalloc-config --version)
+echo ""
+echo CMAKE
+echo $(cmake --version)
+echo ""
+echo MAKE
+echo $(make --version)
+echo ""
+echo GCC
+echo $(gcc --version)
+echo "" 
+echo MESON
+echo $(meson --version)
+echo "" 
 
-spack env activate mallob_env
+
+echo "Exporting Symbols to prevent link-time optimization"
+# 7. Set Locale (Mimics Docker ENV to avoid warnings)
+export LC_ALL=C
+export LANG=C
+
+# Disable LTO for builds that respect CFLAGS
+# export CFLAGS="-fno-lto"
+# export CXXFLAGS="-fno-lto"
+# export LDFLAGS="-fno-lto"
+
 echo "(script) Activated mallob_env"
