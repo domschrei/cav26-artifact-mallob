@@ -20,6 +20,14 @@ if [ $jobslots == 0 ]; then jobslots=1 ; fi
 input="$1"
 shift 1
 
+if [ "$NO_DOCKER" = "1" ]; then
+  echo "NO_DOCKER is set"
+  input=$(echo "$input" | sed 's|^/app/||')
+  echo "Stripped app, now: " $input
+else
+  echo "NO_DOCKER is not set"
+fi
+
 # decompress as needed
 if echo "$input" | grep -qE '.xz$'; then
   input_dec=$(echo "$input" | sed 's/\.xz$//g')
