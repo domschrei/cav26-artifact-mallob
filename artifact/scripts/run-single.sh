@@ -20,8 +20,8 @@ if [ $jobslots == 0 ]; then jobslots=1 ; fi
 input="$1"
 shift 1
 
-if [ "$NO_DOCKER" = "1" ]; then
-  echo "NO_DOCKER option is active. Stripping /app/ from the instance paths "
+if [ "$NODOCKER" = "1" ]; then
+  echo " --> NODOCKER option active. Stripping /app/ from the instance path "
   input="../$(echo "$input" | sed 's|^/app/||')"
 fi
 
