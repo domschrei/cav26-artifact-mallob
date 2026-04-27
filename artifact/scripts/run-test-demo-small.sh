@@ -34,7 +34,7 @@ scripts/run-benchmark.sh -mono-app=INCSAT
 
 banner_run_suite "[1x] Incremental SAT solving, real-time proof checking"
 BENCHMARKFILE=scripts/selection-incsat-demo-small.txt BASEDIR=$basedir/$suite_idx-incsat-rtcheck/ \
-NPROCS=1 NTHREADS=32 TIMELIM=60 \
+NPROCS=1 NTHREADS=1 TIMELIM=60 \
 scripts/run-benchmark.sh -mono-app=INCSAT -otfc=1 -otfci=1
 
 banner_run_suite "[1x] MaxSAT solving"
