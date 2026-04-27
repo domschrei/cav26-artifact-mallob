@@ -21,11 +21,8 @@ input="$1"
 shift 1
 
 if [ "$NO_DOCKER" = "1" ]; then
-  echo "NO_DOCKER is set"
-  input=$(echo "$input" | sed 's|^/app/||')
-  echo "Stripped app, now: " $input
-else
-  echo "NO_DOCKER is not set"
+  echo "NO_DOCKER option is active. Stripping /app/ from the instance paths "
+  input="../$(echo "$input" | sed 's|^/app/||')"
 fi
 
 # decompress as needed
