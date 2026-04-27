@@ -1,7 +1,7 @@
 
 #!/bin/bash
 set -euo pipefail
-BASE_DIR="/app/benchmarks/maxsat"
+BASE_DIR="benchmarks/maxsat"
 BASE_URL="https://www.cs.helsinki.fi/group/coreo/MSE2024-instances"
 
 mkdir -p "$BASE_DIR"

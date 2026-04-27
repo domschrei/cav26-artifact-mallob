@@ -7,5 +7,5 @@ if [ -z "$basedir" ]; then echo "Error: 1st argument <base-dir> not provided" ; 
 
 for d in $basedir/*/ ; do
     scripts/eval-single.sh $d
-    echo "$(basename $d) : $(cat $d/qresults.txt | awk '$2 != "UNKNOWN" && $2 != "ERROR"' | wc -l)/$(cat $d/commands.txt | wc -l) solved"
+    echo "$(basename $d) : $(cat $d/results.txt | awk '$2 != "UNKNOWN" && $2 != "ERROR"' | wc -l)/$(cat $d/commands.txt | wc -l) solved"
 done

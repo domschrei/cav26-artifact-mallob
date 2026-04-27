@@ -8,7 +8,7 @@ set -euo pipefail
     # exit 1
 # fi
 
-INSTANCE_LIST="$1"
+INSTANCE_LIST="scripts/selection-sat-demo.txt"
 BASE_URL="http://benchmark-database.de/file"
 
 missing=0
@@ -21,6 +21,9 @@ while IFS= read -r line; do
     filepath="$line"
     dir="$(dirname "$filepath")"
     filename="$(basename "$filepath")"
+         
+    filepath=$filename
+    dir="sat"
 
     if [[ -f "$filepath" ]]; then
         printf 'exists:  %s\n' "$filepath"
