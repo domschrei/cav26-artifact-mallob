@@ -5,4 +5,5 @@ dir="$1"
 
 TIMELIM=1 scripts/eval.sh "$dir"
 
+TIMELIM=1 scripts/plot-test-smoke.sh "$dir"
 

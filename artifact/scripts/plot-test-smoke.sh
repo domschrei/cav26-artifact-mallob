@@ -3,7 +3,7 @@
 if [ -z $1 ]; then echo "Error: Provide a smoke-test directory to create plots of it" ; exit 1 ; fi
 dir="$1"
 
-TIMELIM=10
+TIMELIM=1
 
 DIR_SAT_MIXED="$dir/1-sat-mixed"
 DIR_SAT_MONOL="$dir/2-sat-monolproof"
@@ -16,7 +16,7 @@ DIR_SMT="$dir/8-smt"
 
 
 outputdir="share/output-$(date +%s)/"
-outputdir="share/output"
+# outputdir="share/output"
 
 mkdir -p "$outputdir"
 source scripts/utils.sh
