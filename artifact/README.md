@@ -11,6 +11,8 @@ Justification for the badges:
 
   - Since our tool paper does not come with its own original experiments but instead discusses and re-examines experimental results from earlier papers, we refer to the supplements of the according papers for reproducing these precise experiments. In the scope of this artifact, we decided to instead provide a **broad experimental demonstration** of all major capabilities of the Mallob system at a shared-memory level, showing speedups for each application at a small scale.
 
+  - We also provide the resources required to run distributed experiments; however, since these are heavily dependent on the concrete computational environment at hand, we cannot offer a self-contained, end-to-end scripting pipeline in this setting.
+
 * **Reusable:** Mallob is MIT-licensed (+ LGPL dual license) and comes with extensive documentation and tests.
 
 Requirements:
@@ -22,11 +24,11 @@ Requirements:
 * Short shared-memory demonstration:
   - 64 GB RAM
   - 32 physical cores
-  - 12 hours
+  - 12-24 hours
 * Full shared-memory demonstration:
   - 64 GB RAM
   - 32 physical cores
-  - three days
+  - roughly one week
 * External connectivity: NOT required.
 
 
@@ -79,22 +81,45 @@ scripts/run-test-smoke.sh
 which should, at the end, print a line as follows:
 ```
 ************************************************************
-All runs done. Find output at /app/share/mallob-fadd131f2af1-1776866726
+All runs done. Find output at /app/share/mallob-123456789abc-123456789
 ************************************************************
 ```
 
 Evaluate the test with:
 ```
-scripts/eval-test-smoke.sh /app/share/mallob-fadd131f2af1-1776866726
+scripts/eval-test-smoke.sh /app/share/mallob-123456789abc-123456789
 ```
 (replace the directory according to the output of the test run).
+This creates raw data files that form the basis for plots and tables.
 
-**TODO** Plots and tables
+You can then accordingly run
+```
+scripts/plot-test-smoke.sh /app/share/mallob-123456789abc-123456789
+```
+to produce plots.
+
+# TODO EXPLAIN PLOTS (& TABLES ?)
 
 
 ## Full Review
 
-**TODO** Instructions for running, evaluating, getting plots and tables
+The full demonstration is run just like the above smoke test:
+```
+# Small demo (60s time limit per input, reduced benchmark sets) - 12-24 hours
+scripts/run-test-demo-small.sh
+scripts/eval-test-demo-small.sh /app/share/mallob-123456789abc-123456789
+scripts/plot-test-demo-small.sh /app/share/mallob-123456789abc-123456789
+
+# Large demo (300s time limit per input, full benchmark sets) - about a week
+scripts/run-test-demo.sh
+scripts/eval-test-demo.sh /app/share/mallob-123456789abc-123456789
+scripts/plot-test-demo.sh /app/share/mallob-123456789abc-123456789
+```
+
+
+## Custom Experiments
+
+The setup we provide can be easily extended to run custom experiments. Consult, e.g., the file `scripts/run-test-demo.sh` in the Docker image. Using Mallob program options (consulting Mallob's specific documentation, especially in its `docs/` directory) and the featured environment variables, you can assemble your own suite of experiments with deviating scales, timeouts, benchmarks, or Mallob configurations. Please let us know if you run into any trouble doing so. 
 
 
 ## Bare Metal Setup
