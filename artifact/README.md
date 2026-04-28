@@ -20,11 +20,11 @@ Requirements:
 * Smoke test:
   - 32 GB RAM
   - 8 physical cores
-  - one hour
+  - 15-30 min
 * Short shared-memory demonstration:
   - 64 GB RAM
   - 32 physical cores
-  - 12-24 hours
+  - 24 hours
 * Full shared-memory demonstration:
   - 64 GB RAM
   - 32 physical cores
@@ -56,7 +56,7 @@ We assume that [Docker is properly installed on your system](https://get.docker.
 
 ## Benchmarks
 
-This artifact comes with a number of diverse benchmark sets based on the following benchmarks:
+This artifact comes with a number of diverse benchmark sets from the following sources:
 
 * SAT: [International SAT Competition 2025](https://satcompetition.github.io/2025/downloads.html)
 * IncSAT: [Incremental SAT benchmark set](https://doi.org/10.5281/zenodo.18330440) from three application tools (Bitwuzla, 2LS, Lilotane), as introduced by Schreiber et al. (2026), "Real-time Proof Checking for Distributed Incremental SAT Solving" (TACAS'26).
