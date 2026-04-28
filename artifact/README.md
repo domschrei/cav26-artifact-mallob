@@ -9,9 +9,9 @@ Justification for the badges:
 
 * **Functional:** The artifact supports the claims on the capabilities of the tool presented in the paper. It provides a readily usable installation of Mallob in a Docker container, which supports all major features outlined in the paper at a shared-memory level.
 
-  - Since our tool paper does not come with its own original experiments but instead discusses and re-examines experimental results from earlier papers, we reference the supplements of the according papers for reproducing these precise experiments. In the scope of this artifact, we decided to provide a broad experimental demonstration of all major capabilities of the Mallob system at a shared-memory level, showing some speedups for each application at small scales.
+  - Since our tool paper does not come with its own original experiments but instead discusses and re-examines experimental results from earlier papers, we refer to the supplements of the according papers for reproducing these precise experiments. In the scope of this artifact, we decided to instead provide a **broad experimental demonstration** of all major capabilities of the Mallob system at a shared-memory level, showing speedups for each application at a small scale.
 
-* **Reusable:** Mallob is MIT-licensed (+ LGPL dual license) and comes with extensive documentation.
+* **Reusable:** Mallob is MIT-licensed (+ LGPL dual license) and comes with extensive documentation and tests.
 
 Requirements:
 
@@ -52,9 +52,26 @@ We assume that [Docker is properly installed on your system](https://get.docker.
 - Execute the command `exit` to leave the shell and exit the image at any point.
 
 
+## Benchmarks
+
+This artifact comes with a number of diverse benchmark sets based on the following benchmarks:
+
+* SAT: [International SAT Competition 2025](https://satcompetition.github.io/2025/downloads.html)
+* IncSAT: [Incremental SAT benchmark set](https://doi.org/10.5281/zenodo.18330440) from three application tools (Bitwuzla, 2LS, Lilotane), as introduced by Schreiber et al. (2026), "Real-time Proof Checking for Distributed Incremental SAT Solving" (TACAS'26).
+* SMT: [Selection of SMT-LIB benchmarks](https://doi.org/10.5281/zenodo.17478480) as introduced by Schreiber et al. (2026), "Massively Parallel Bit-precise Verification with Bitwuzla and Mallob" (TACAS'26).
+* MaxSAT: [MaxSAT Evaluation 2024](https://maxsat-evaluations.github.io/2024/benchmarks.html), anytime weighted and unweighted problems
+
+For practical reasons (such as the size of the artifact), note that we removed the largest instances (roughly the ones with file sizes ≥ 128 MiB) from these test sets.
+
+You can extract all benchmarks to your host machine (e.g., to run bare-metal experiments) by entering the Docker image and then copying the benchmark directory to the `share/` directory:
+```bash
+cp -r benchmarks share/
+```
+
+
 ## Smoke Test
 
-Start the smoke test with
+In the Docker image, start the smoke test with
 ```
 scripts/run-test-smoke.sh
 ```
@@ -98,4 +115,5 @@ cd mallob-cav26
 bash scripts/setup/cmake-make.sh build -DMALLOB_MAX_N_APPTHREADS_PER_PROCESS=64 -DMALLOB_APP_SMT=1 -DMALLOB_APP_MAXSAT=1 -DMALLOB_BUILD_IMPCHECK=1
 ```
 
-If you are working with a SLURM-managed HPC cluster, please consult the SLURM-specific documentation for Mallob at the sub-directory `mallob-cav26/docs/clusters.md`. Otherwise, any subsequent steps heavily depend on your hardware and system environment, which unfortunately means that we cannot provide any specific instructions beyond this point.
+If you are working with a SLURM-managed HPC cluster, please consult the SLURM-specific documentation for Mallob at the sub-directory `mallob-cav26/docs/clusters.md`. Otherwise, any subsequent steps heavily depend on your hardware and system environment, which unfortunately means that we cannot provide any specific instructions for launching the distributed program.
+
