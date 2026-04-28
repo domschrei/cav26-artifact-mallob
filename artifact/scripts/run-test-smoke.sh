@@ -5,7 +5,7 @@ source scripts/setup-for-runs.sh
 # Same parameters for all smoke test runs
 export NPROCS=2
 export NTHREADS=4
-export TIMELIM=10
+export TIMELIM=1
 
 suite_count=1 # number of experiments
 

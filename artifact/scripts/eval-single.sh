@@ -10,7 +10,11 @@ dir="$1"
 for d in $dir/*/ ; do
 
     id=$(basename $d)
-    inst=$(grep -oP '"/app/benchmarks/.*?"' $d/0/log.0 | sed 's/"//g')
+    if [ "$NODOCKER" -eq "1" ]; then
+      inst=$(grep -oP '"../benchmarks/.*?"' $d/0/log.0 | sed 's/"//g' | cut -c 4-)
+    else
+      inst=$(grep -oP '"/app/benchmarks/.*?"' $d/0/log.0 | sed 's/"//g')
+    fi
     if ! [ -z "$inst" ]; then id="$inst"; fi
 
     time="$TIMELIM"
