@@ -10,7 +10,7 @@ dir="$1"
 for d in $dir/*/ ; do
 
     id=$(basename $d)
-    if [ $NODOCKER -eq 1 ]; then
+    if [ "$NODOCKER" -eq "1" ]; then
       inst=$(grep -oP '"../benchmarks/.*?"' $d/0/log.0 | sed 's/"//g' | cut -c 4-)
     else
       inst=$(grep -oP '"/app/benchmarks/.*?"' $d/0/log.0 | sed 's/"//g')
