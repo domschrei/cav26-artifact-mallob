@@ -2,7 +2,7 @@
 
 source scripts/setup-for-runs.sh
 
-suite_count=16 # number of experiments
+suite_count=18 # number of experiments
 
 
 # Single-core baselines
