@@ -7,7 +7,7 @@ export NPROCS=2
 export NTHREADS=4
 export TIMELIM=1
 
-suite_count=1 # number of experiments
+suite_count=9 # number of experiments
 
 banner_run_suite "SAT solving, mixed portfolio"
 BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-sat-mixed/ \

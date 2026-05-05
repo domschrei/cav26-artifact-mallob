@@ -10,11 +10,12 @@ dir="$1"
 for d in $dir/*/ ; do
 
     id=$(basename $d)
-    if [ "$NODOCKER" -eq "1" ]; then
-      inst=$(grep -oP '"../benchmarks/.*?"' $d/0/log.0 | sed 's/"//g' | cut -c 4-)
-    else
+    if [ -d /app/artifact/ ]; then
       inst=$(grep -oP '"/app/benchmarks/.*?"' $d/0/log.0 | sed 's/"//g')
+    else
+      inst=$(grep -oP '"../benchmarks/.*?"' $d/0/log.0 | sed 's/"//g' | cut -c 4-)
     fi
+
     if ! [ -z "$inst" ]; then id="$inst"; fi
 
     time="$TIMELIM"
@@ -39,7 +40,9 @@ for d in $dir/*/ ; do
         elif grep -q "RESPONSE_TIME" $d/0/log.0 ; then
             time=$(grep -oE "RESPONSE_TIME #[0-9]+ [0-9\.]+" $d/0/log.0 | awk '{print $3}' | sort -g | tail -1)
         fi
-        if (( $(echo "$time >= $TIMELIM" |bc -l) )); then
+
+        # if (( $(echo "$time >= $TIMELIM" | bc -l) )); then  #bc not default available on all platforms
+	if awk "BEGIN {exit !($time >= $TIMELIM)}"; then
             res="UNKNOWN"
         fi
 
@@ -67,7 +70,8 @@ for d in $dir/*/ ; do
             xz -dk "$inst.xz"
         fi
         nqueries=$(grep '(check-sat)' $inst | wc -l)
-        if (( $(echo "$time >= $TIMELIM" |bc -l) )); then
+         # if (( $(echo "$time >= $TIMELIM" |bc -l) )); then  #replaced bc with awk
+	if awk "BEGIN {exit !($time >= $TIMELIM)}"; then
             res="UNKNOWN"
         fi
     fi
