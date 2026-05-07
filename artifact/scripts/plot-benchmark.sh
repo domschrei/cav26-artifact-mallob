@@ -15,7 +15,7 @@ mkdir -p "$outputdir"
 
 # SAT
 input=""
-for d in $(echo $dir/*-sat-* | sort) ; do
+for d in $(echo $dir/*-sat-* | tr ' ' '\n' | sort -V | tac) ; do
     input="$input $d/cdf.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
 done
 python3 scripts/plot_curves.py \
@@ -24,10 +24,16 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
 -title='SAT solving performance' \
 -sizex=3 -sizey=3 -o=$outputdir/sat-cdf.pdf >> $outputdir/plotting-logs.txt
+python3 scripts/plot_curves.py \
+$input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
+-extend-to-right -legend-spacing=0 -no-markers \
+-gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
+-title='SAT solving performance' \
+-sizex=3 -sizey=3 -o=$outputdir/sat-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
 
 # INCSAT
 input=""
-for d in $(echo $dir/*-incsat* | sort) ; do
+for d in $(echo $dir/*-incsat* | tr ' ' '\n' | sort -V | tac) ; do
     input="$input $d/cdf.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
 done
 python3 scripts/plot_curves.py \
@@ -36,10 +42,16 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
 -title='Incremental SAT performance' \
 -sizex=3 -sizey=3 -o=$outputdir/incsat-cdf.pdf >> $outputdir/plotting-logs.txt
+python3 scripts/plot_curves.py \
+$input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
+-extend-to-right -legend-spacing=0 -no-markers \
+-gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
+-title='Incremental SAT performance' \
+-sizex=3 -sizey=3 -o=$outputdir/incsat-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
 
 # MAXSAT
 input=""
-for d in $(echo $dir/*-maxsat* | sort) ; do
+for d in $(echo $dir/*-maxsat* | tr ' ' '\n' | sort -V | tac) ; do
     input="$input $d/cdf.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
 done
 python3 scripts/plot_curves.py \
@@ -48,10 +60,16 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
 -title='MaxSAT performance' \
 -sizex=3 -sizey=3 -o=$outputdir/maxsat-cdf.pdf >> $outputdir/plotting-logs.txt
+python3 scripts/plot_curves.py \
+$input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
+-extend-to-right -legend-spacing=0 -no-markers \
+-gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
+-title='MaxSAT performance' \
+-sizex=3 -sizey=3 -o=$outputdir/maxsat-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
 
 # SMT
 input=""
-for d in $(echo $dir/*-smt* | sort) ; do
+for d in $(echo $dir/*-smt* | tr ' ' '\n' | sort -V | tac) ; do
     input="$input $d/cdf.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
 done
 python3 scripts/plot_curves.py \
@@ -60,6 +78,12 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
 -title='SMT performance' \
 -sizex=3 -sizey=3 -o=$outputdir/smt-cdf.pdf >> $outputdir/plotting-logs.txt
+python3 scripts/plot_curves.py \
+$input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
+-extend-to-right -legend-spacing=0 -no-markers \
+-gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
+-title='SMT performance' \
+-sizex=3 -sizey=3 -o=$outputdir/smt-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
 
 ####################################################################################
 # TABLES
@@ -69,47 +93,47 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 (
 echo "_ overall _ satisf. _ unsatisf. _"
 echo "Run #solved PAR2 #solved avgtime #solved avgtime"
-for d in $dir/*-sat-* ; do
+for d in $(echo $dir/*-sat-* | tr ' ' '\n' | sort -V) ; do
     nbenchs=$(cat $d/commands.txt | wc -l)
     cat $d/results.txt | awk '$3 < '$TIMELIM' && $2 == "SATISFIABLE" {nsat+=1; ssat+=$3}\
       $3 < '$TIMELIM' && $2 == "UNSATISFIABLE" {nunsat+=1; sunsat+=$3}\
       END {print "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat+nunsat, (ssat+sunsat + ('$nbenchs'-nsat-nunsat)*2*'$TIMELIM')/('$nbenchs'), nsat, ssat/nsat, nunsat, sunsat/nunsat}'
-done | sort
+done
 ) | column -t > $outputdir/table-sat.txt
 
 # INCSAT
 (
 echo "Run #fullysolved PAR2 #solvedqueries"
-for d in $dir/*-incsat* ; do
+for d in $(echo $dir/*-incsat* | tr ' ' '\n' | sort -V) ; do
     nbenchs=$(cat $d/commands.txt | wc -l)
     cat $d/results.txt | awk '$3 < '$TIMELIM' && $2 == "SATISFIABLE" {nsat+=1; ssat+=$3}\
       $3 < '$TIMELIM' && $2 == "UNSATISFIABLE" {nunsat+=1; sunsat+=$3}\
       END {printf "%s %i %.1f ", "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat+nunsat, \
       (ssat+sunsat + ('$nbenchs'-nsat-nunsat)*2*'$TIMELIM')/('$nbenchs')}'
     cat $d/solvedqueries.txt | awk '{s+=$2} END {print s}'
-done | sort
+done
 ) | column -t > $outputdir/table-incsat.txt
 
 # MaxSAT
 (
 echo "Run #optsolved PAR2 avgtime"
-for d in $dir/*-maxsat* ; do
+for d in $(echo $dir/*-maxsat* | tr ' ' '\n' | sort -V) ; do
     nbenchs=$(cat $d/commands.txt | wc -l)
     cat $d/results.txt | awk '$3 < '$TIMELIM' && ($2 == "SATISFIABLE" || $2 == "OPTIMUM_FOUND") {nsat+=1; ssat+=$3}\
       END {print "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat, (ssat + ('$nbenchs'-nsat)*2*'$TIMELIM')/('$nbenchs'), nsat, ssat/nsat}'
-done | sort
+done
 ) | column -t > $outputdir/table-maxsat.txt
 
 # SMT
 (
 echo "Run #fullysolved PAR2 #solvedqueries"
-for d in $dir/*-smt* ; do
+for d in $(echo $dir/*-smt* | tr ' ' '\n' | sort -V) ; do
     nbenchs=$(cat $d/commands.txt | wc -l)
     cat $d/results.txt | awk '$3 < '$TIMELIM' && ($2 == "SATISFIABLE" || $2 == "UNSATISFIABLE") {nsat+=1; ssat+=$3}\
       END {printf "%s %i %.1f ", "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat, \
       (ssat + ('$nbenchs'-nsat)*2*'$TIMELIM')/('$nbenchs')}'
     cat $d/solvedqueries.txt | awk '{s+=$2} END {print s}'
-done | sort
+done
 ) | column -t > $outputdir/table-smt.txt
 
 ####################################################################################
