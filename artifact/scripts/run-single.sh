@@ -25,7 +25,7 @@ shift 1
   # input="../$(echo "$input" | sed 's|^/app/||')"
 # fi
 #
-if ! [ -d /app/artifact ]; then
+if ! [ -d /app/benchmarks ]; then
   echo " --> Detected Bare-Metal run, stripping /app/ from the instance path"
   input="../$(echo "$input" | sed 's|^/app/||')"
 fi
