@@ -7,6 +7,7 @@ if [ -z $TIMELIM ]; then echo "Error: \$TIMELIM not provided" ; exit 1 ; fi
 
 outputdir="$dir/output-$(date +%s)/"
 mkdir -p "$outputdir"
+> $outputdir/plotting-logs.txt
 
 ####################################################################################
 # CDF PLOTS
@@ -22,7 +23,7 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -extend-to-right -legend-spacing=0 -no-markers \
 -gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
 -title='SAT solving performance' \
--sizex=3 -sizey=3 -o=$outputdir/sat-cdf.pdf
+-sizex=3 -sizey=3 -o=$outputdir/sat-cdf.pdf >> $outputdir/plotting-logs.txt
 
 # INCSAT
 input=""
@@ -34,7 +35,7 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -extend-to-right -legend-spacing=0 -no-markers \
 -gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
 -title='Incremental SAT performance' \
--sizex=3 -sizey=3 -o=$outputdir/incsat-cdf.pdf
+-sizex=3 -sizey=3 -o=$outputdir/incsat-cdf.pdf >> $outputdir/plotting-logs.txt
 
 # MAXSAT
 input=""
@@ -46,7 +47,7 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -extend-to-right -legend-spacing=0 -no-markers \
 -gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
 -title='MaxSAT performance' \
--sizex=3 -sizey=3 -o=$outputdir/maxsat-cdf.pdf
+-sizex=3 -sizey=3 -o=$outputdir/maxsat-cdf.pdf >> $outputdir/plotting-logs.txt
 
 # SMT
 input=""
@@ -58,7 +59,7 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -extend-to-right -legend-spacing=0 -no-markers \
 -gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
 -title='SMT performance' \
--sizex=3 -sizey=3 -o=$outputdir/smt-cdf.pdf
+-sizex=3 -sizey=3 -o=$outputdir/smt-cdf.pdf >> $outputdir/plotting-logs.txt
 
 ####################################################################################
 # TABLES
@@ -123,19 +124,19 @@ for d in $dir/*-sat-monolproof* ; do
     cat $d/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$5}' > .1v1-b
     python3 scripts/plot_1v1.py .1v1-a -l="Solving time [s]" .1v1-b -l="Checking time [s]" \
     -h="$(basename $d)" \
-    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-solve-vs-check-$(basename $d).pdf
+    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-solve-vs-check-$(basename $d).pdf >> $outputdir/plotting-logs.txt
 
     cat $d_mixed/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
     cat $d/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3+$5}' > .1v1-b
     python3 scripts/plot_1v1.py .1v1-a -l="Solving time w/ mixed portfolio [s]" \
     .1v1-b -l="Solving + checking time [s]" -h=Monolithic \
-    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-over-mixed-$(basename $d).pdf
+    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-over-mixed-$(basename $d).pdf >> $outputdir/plotting-logs.txt
 
     cat $d_mixed/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
     cat $d_rtchk/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-b
     python3 scripts/plot_1v1.py .1v1-a -l="Solving time w/ mixed portfolio [s]" \
     .1v1-b -l="Solving + checking time [s]" -h="Real-time checking" \
-    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-$(basename $d | sed 's/monolproof/rtcheck/g').pdf
+    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-$(basename $d | sed 's/monolproof/rtcheck/g').pdf >> $outputdir/plotting-logs.txt
 done
 
 

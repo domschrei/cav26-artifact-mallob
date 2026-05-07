@@ -4,8 +4,30 @@ if [ -z $TIMELIM ]; then echo "Error: \$TIMELIM not provided" ; exit 1 ; fi
 if [ -z $1 ]; then echo "Error: Provide a directory to evaluate" ; exit 1 ; fi
 
 dir="$1"
-
 > $dir/results.txt
+
+if grep -rq "templates/tc.json" $dir/*/ ; then
+    # Scheduled run (many instances solved in one run of Mallob)
+
+    grep -hr "Reading job" $dir/1/*/log.*.reader | grep -oE "\{.*\}" | sed 's/{//g;s/}//g'\
+     > $dir/commands.txt
+
+    grep -hoE "[0-9\.]+ [0-9]+ RESPONSE_TIME #[0-9]+ [0-9\.]+ " $dir/1/*/log.* | awk '{print $4,"solved",$5}'\
+     >> $dir/results.txt
+    grep -hoE "[0-9\.]+ [0-9]+ TIMEOUT/UNKNOWN #[0-9]+ " $dir/1/*/log.* | awk '{print $4,"UNKNOWN",'$TIMELIM'}'\
+     >> $dir/results.txt
+
+    grep -hoE "[0-9\.]+ [0-9]+ RESPONSE_TIME #[0-9]+ [0-9\.]+ " $dir/1/*/log.* | awk '{print $5}'\
+     | sort -g | awk 'BEGIN{print 0,0} {print $1,(NR-1); print $1,NR}' > $dir/cdf.txt
+
+    grep -hoE "[0-9\.]+ [0-9]+ RESPONSE_TIME #[0-9]+ [0-9\.]+ " $dir/1/*/log.* | awk '{print $1}'\
+     | sort -g | awk 'BEGIN{print 0,0} {print $1,(NR-1); print $1,NR}' > $dir/cdf-accumulated.txt
+
+    exit
+fi
+
+# "Mono" runs (one instance processed per Mallob run)
+
 > $dir/solvedqueries.txt
 for d in $dir/*/ ; do
 
