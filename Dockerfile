@@ -14,8 +14,8 @@ WORKDIR /app
 COPY ./benchmarks benchmarks
 
 # Fetch Mallob
-RUN git clone https://github.com/domschrei/mallob && cd mallob && git checkout \
-dbd4a35643fcbbee6c32e169016b2c17c595e2ee
+RUN git clone https://github.com/domschrei/mallob && cd mallob && \
+git checkout d70f5949cee65eeb23298cd1e9dd69e77f771997
 
 # Build Mallob (fetching and building all dependencies)
 RUN cd mallob && bash scripts/setup/cmake-make.sh build \

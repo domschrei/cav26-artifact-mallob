@@ -9,9 +9,9 @@ Justification for the badges:
 
 * **Functional:** The artifact supports the claims on the capabilities of the tool presented in the paper. It provides a readily usable installation of Mallob in a Docker container, which supports all major features outlined in the paper at a shared-memory level.
 
-  - Since our tool paper does not come with its own original experiments but instead discusses and re-examines experimental results from earlier papers, we refer to the supplements of the according papers for reproducing these precise experiments. In the scope of this artifact, we decided to instead provide a **broad experimental demonstration** of all major capabilities of the Mallob system at a shared-memory level, showing speedups for each application at a small scale.
+  - Since our tool paper does not come with its own original experiments but instead discusses and re-examines experimental results from a wide range of prior publications, we refer to the supplements of the according papers for reproducing the respective experiments. In the scope of this artifact, we decided to instead provide a **broad experimental demonstration** of all major capabilities of the Mallob system at a shared-memory level, showing some selected performance measures for each application at a small scale.
 
-  - We also provide the resources required to run distributed experiments; however, since these are heavily dependent on the concrete computational environment at hand, we cannot offer a self-contained, end-to-end scripting pipeline in this setting.
+  - We also provide the resources required to run distributed experiments; however, since these are heavily dependent on the concrete computational environment at hand, we cannot offer a self-contained, end-to-end, one-size-fits-all scripting pipeline in this setting.
 
 * **Reusable:** Mallob is MIT-licensed (+ LGPL dual license) and comes with extensive documentation and tests.
 
@@ -20,8 +20,8 @@ Requirements:
 * Smoke test:
   - 32 GB RAM
   - 8 physical cores
-  - 15-30 min
-* Short shared-memory demonstration:
+  - 30 min
+* Small shared-memory demonstration:
   - 64 GB RAM
   - 32 physical cores
   - 24 hours
@@ -30,6 +30,18 @@ Requirements:
   - 32 physical cores
   - roughly one week
 * External connectivity: NOT required.
+
+**At this stage of the artifact evaluation, please do let us know if you encounter errors or problems with the setup. We will do our best to fix any issues as quickly as possible.**
+
+
+## Content
+
+This artifact contains the following files:
+
+* README.md : The documentation you are currently reading
+* LICENSE.txt : MIT license
+* mallob-cav26.zip : The Mallob project, including its source code, scripts, and documentation. A snapshot of [Mallob's GitHub repository](https://github.com/domschrei/mallob)
+* mallob-cav26-img.tar : A Docker image you can readily import and enter, coming with a pre-installed and set up Mallob, diverse benchmarks, and convenience scripts for running experiments
 
 
 ## Setup
@@ -45,7 +57,8 @@ We assume that [Docker is properly installed on your system](https://get.docker.
 
 - Start a docker container:
   ```bash
-  docker run -v $(pwd)/share:/app/share -it --rm mallob-cav26
+  mkdir -p ./share
+  docker run -v ./share:/app/share -it --rm mallob-cav26
   ```
   This will spin up a new docker container in which all subsequent steps should be executed. You can now reproduce the tests and experiments as explained below.
   
@@ -80,9 +93,9 @@ scripts/run-test-smoke.sh
 
 which should, at the end, print a line as follows:
 ```
-************************************************************
+####################################################################################
 All runs done. Find output at /app/share/mallob-123456789abc-123456789
-************************************************************
+####################################################################################
 ```
 
 Evaluate the test with:
@@ -90,15 +103,18 @@ Evaluate the test with:
 scripts/eval-test-smoke.sh /app/share/mallob-123456789abc-123456789
 ```
 (replace the directory according to the output of the test run).
-This creates raw data files that form the basis for plots and tables.
+This first creates raw data files, which form the basis for plots and tables, and then produces said plots and tables.
 
-You can then accordingly run
+The output should end like this:
 ```
-scripts/plot-test-smoke.sh /app/share/mallob-123456789abc-123456789
+####################################################################################
+All output written to /app/share/mallob-123456789abc-123456789/output-987654321/
+####################################################################################
 ```
-to produce plots.
 
-# TODO EXPLAIN PLOTS (& TABLES ?)
+As a basic sanity check, visit the indicated output directory on your host system (i.e., outside of Docker) and open the file `sat-cdf.pdf`, which should feature performance lines for eight approaches.
+
+Please note that the experiments of the smoke test are **not** indicative of the different approaches' performance, since the timeouts, scales, and benchmark sets are far to small/low to arrive at meaningful data.
 
 
 ## Full Review
@@ -108,13 +124,24 @@ The full demonstration is run just like the above smoke test:
 # Small demo (60s time limit per input, reduced benchmark sets) - 12-24 hours
 scripts/run-test-demo-small.sh
 scripts/eval-test-demo-small.sh /app/share/mallob-123456789abc-123456789
-scripts/plot-test-demo-small.sh /app/share/mallob-123456789abc-123456789
 
-# Large demo (300s time limit per input, full benchmark sets) - about a week
+# Full demo (300s time limit per input, full benchmark sets) - about a week
 scripts/run-test-demo.sh
 scripts/eval-test-demo.sh /app/share/mallob-123456789abc-123456789
-scripts/plot-test-demo.sh /app/share/mallob-123456789abc-123456789
 ```
+
+The produced output contains the following files:
+
+* table-{sat,incsat,maxsat,smt}.txt : Basic performance measures for the different setups.
+* {sat,incsat,maxsat,smt}.txt : Performance curves for the different setups.
+
+  - Note that for IncSAT, MaxSAT, and SMT, only completely solved inputs are counted as solved in these plots. Inputs where some number of queries / increments / solution costs have been solved are not visualized.
+
+* 1v1-overhead-over-mixed-*.pdf : Per-instance performance comparison of monolithic proof production with unchecked, mixed-portfolio solving.
+* 1v1-overhead-*-rtcheck.pdf : Per-instance performance comparison of solving including real-time proof checking with unchecked, mixed-portfolio solving.
+* 1v1-overhead-solve-vs-check-*.pdf : Per-instance performance comparison of solving time vs. checking time with monolithic proof production.
+
+In each output, "c1" represents single-core runs, "c8" eight-core runs, etc.
 
 
 ## Custom Experiments

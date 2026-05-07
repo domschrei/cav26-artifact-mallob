@@ -10,7 +10,7 @@ dir="$1"
 for d in $dir/*/ ; do
 
     id=$(basename $d)
-    if [ "$NODOCKER" -eq "1" ]; then
+    if [ "x$NODOCKER" == "x1" ]; then
       inst=$(grep -oP '"../benchmarks/.*?"' $d/0/log.0 | sed 's/"//g' | cut -c 4-)
     else
       inst=$(grep -oP '"/app/benchmarks/.*?"' $d/0/log.0 | sed 's/"//g')
@@ -70,9 +70,12 @@ for d in $dir/*/ ; do
         if (( $(echo "$time >= $TIMELIM" |bc -l) )); then
             res="UNKNOWN"
         fi
+    else
+        # number of solved Mallob task minus one (the "top-level" task)
+        nsolved=$(( $(grep "RESPONSE_TIME" $d/0/log.0 | wc -l) - 1))
     fi
     echo "$id $nsolved" >> $dir/solvedqueries.txt
 done
 
 cat $dir/results.txt | awk '$2 != "UNKNOWN" && $3 < '$TIMELIM' {print $3}' | sort -g\
- | awk 'BEGIN{print 0,0} {print $1,NR}' > $dir/cdf.txt
+ | awk 'BEGIN{print 0,0} {print $1,(NR-1); print $1,NR}' > $dir/cdf.txt
