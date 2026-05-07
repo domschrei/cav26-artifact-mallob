@@ -20,10 +20,17 @@ if [ $jobslots == 0 ]; then jobslots=1 ; fi
 input="$1"
 shift 1
 
-if [ "$NODOCKER" = "1" ]; then
-  echo " --> NODOCKER option active. Stripping /app/ from the instance path "
+# if [ "$NODOCKER" = "1" ]; then
+  # echo " --> NODOCKER option active. Stripping /app/ from the instance path "
+  # input="../$(echo "$input" | sed 's|^/app/||')"
+# fi
+#
+if ! [ -d /app/artifact ]; then
+  echo " --> Detected Bare-Metal run, stripping /app/ from the instance path"
   input="../$(echo "$input" | sed 's|^/app/||')"
 fi
+
+
 
 # decompress as needed
 if echo "$input" | grep -qE '.xz$'; then

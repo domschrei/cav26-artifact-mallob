@@ -28,7 +28,7 @@ scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=1
 
 banner_run_suite "[${scale}x] SAT solving, streamlined preprocessing"
 BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-c$scale-sat-streamlined/ \
-NPROCS=2 scripts/run-benchmark.sh -mono-app=SATWITHPRE -pl=1
+scripts/run-benchmark.sh -mono-app=SATWITHPRE -pl=1 -pb=0
 
 banner_run_suite "[${scale}x] Incremental SAT solving"
 BENCHMARKFILE=scripts/selection-incsat-smoke.txt BASEDIR=$basedir/$suite_idx-c$scale-incsat/ \
