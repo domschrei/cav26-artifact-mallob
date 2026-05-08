@@ -89,13 +89,14 @@ scripts/run-benchmark.sh -mono-app=SMT
 # Some scaling for scheduling experiments
 
 for p in 4 32 ; do
-    banner_run_suite "[${p}x] Scheduling"
+    scale=$p
+    banner_run_suite "[${scale}x] Scheduling"
     NPROCS=$p NTHREADS=1 TIMELIM=1800 \
     BENCHMARKFILE=scripts/selection-none.txt BASEDIR=$basedir/$suite_idx-c$scale-scheduling/ \
     MPIPARAMS="--oversubscribe" \
     scripts/run-benchmark.sh -mono-app=SAT -job-desc-template=$(pwd)/scripts/selection-sat-demo-small.txt \
     -job-template=templates/tj.json -client-template=templates/tc.json -c=1 \
-    -J=$(cat $(pwd)/scripts/selection-sat-demo-small.txt | wc -l) -ajpc=4 -jwl=$TIMELIM
+    -J=$(cat $(pwd)/scripts/selection-sat-demo-small.txt | wc -l) -ajpc=4 -ljpc=8 -jwl=$TIMELIM
 done
 
 

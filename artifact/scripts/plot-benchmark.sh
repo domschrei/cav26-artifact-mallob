@@ -101,6 +101,18 @@ $input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
 -sizex=3 -sizey=3 -o=$outputdir/maxsat-quality-$B.pdf >> $outputdir/plotting-logs.txt
 done
 
+# Scheduling accumulated CDF
+input=""
+for d in $(echo $dir/*-scheduling* | tr ' ' '\n' | sort -V | tac) ; do
+    input="$input $d/cdf-accumulated.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
+done
+python3 scripts/plot_curves.py \
+$input -xy -minx=0 -miny=0 -legend-spacing=0 -no-markers \
+-gridx -gridy -labelx='Time since system start [s]' -labely='\# solved instances' \
+-title='Multi-tasking SAT performance' \
+-sizex=3 -sizey=3 -o=$outputdir/scheduling-cdf.pdf >> $outputdir/plotting-logs.txt
+
+
 
 ####################################################################################
 # TABLES
@@ -154,6 +166,17 @@ for d in $(echo $dir/*-smt* | tr ' ' '\n' | sort -V) ; do
     cat $d/solvedqueries.txt | awk '{s+=$2} END {print s}'
 done
 ) | column -t > $outputdir/table-smt.txt
+
+# Scheduling
+(
+echo "Run #introduced #solved MeanResponseTime"
+for d in $(echo $dir/*-scheduling* | tr ' ' '\n' | sort -V) ; do
+    nbenchs=$(cat $d/results.txt | wc -l)
+    nsolved=$(cat $d/results.txt | awk '$2 == "solved"' | wc -l)
+    rt=$(cat $d/results.txt | awk '$2 == "solved" {n+=1; s+=$3} END {print (n==0)?0:(s/n)}')
+    printf '%s %i %i %.1f\n' $(basename $d | grep -oE 'c[0-9]+-.*') "$nbenchs" "$nsolved" "$rt"
+done
+) | column -t > $outputdir/table-scheduling.txt
 
 ####################################################################################
 # Proof checking overheads

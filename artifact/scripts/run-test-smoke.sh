@@ -88,13 +88,14 @@ scripts/run-benchmark.sh -mono-app=SMT
 
 # Scheduling experiment
 
-banner_run_suite "Scheduling"
-NPROCS=32 NTHREADS=1 TIMELIM=120 \
+scale=8
+banner_run_suite "[${scale}x] Scheduling"
+NPROCS=$scale NTHREADS=1 TIMELIM=120 \
 BENCHMARKFILE=scripts/selection-none.txt BASEDIR=$basedir/$suite_idx-c$(($NPROCS * $NTHREADS))-scheduling/ \
 MPIPARAMS="--oversubscribe" \
 scripts/run-benchmark.sh -mono-app=SAT -job-desc-template=$(pwd)/scripts/selection-sat-smoke.txt \
 -job-template=templates/tj.json -client-template=templates/tc.json -c=1 \
--J=$(cat $(pwd)/scripts/selection-sat-smoke.txt | wc -l) -ajpc=5 -jwl=60
+-J=$(cat $(pwd)/scripts/selection-sat-smoke.txt | wc -l) -ajpc=4 -ljpc=8 -jwl=60
 
 
 banner_run_done

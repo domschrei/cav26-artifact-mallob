@@ -31,8 +31,6 @@ Requirements:
   - roughly one week
 * External connectivity: NOT required.
 
-**At this stage of the artifact evaluation, please do let us know if you encounter errors or problems with the setup. We will do our best to fix any issues as quickly as possible.**
-
 
 ## Content
 
@@ -130,7 +128,7 @@ c8-sat-streamlined  12       4.02875  4        0.103426  8          0.0201673
 
 Similarly, if you visit the indicated output directory on your host system (i.e., outside of Docker) and open the file `sat-cdf-logscale.pdf`, you should be able to see performance lines for the same eight runs.
 
-**Note:** The experiments of the smoke test are **not** indicative of the different approaches' performance, since the timeouts, scales, and benchmark sets are far too small/low to arrive at meaningful data.
+**Note:** The experiments of the smoke test are **not** indicative of the different approaches' performance, since the timeouts, scales, and benchmark sets are far too small/low to arrive at any meaningful data.
 
 
 ## Full Review
@@ -148,8 +146,8 @@ scripts/eval-test-demo.sh /app/share/mallob-123456789abc-123456789
 
 The produced output contains the following files:
 
-* table-{sat,incsat,maxsat,smt}.txt : Basic performance measures for the different setups.
-* {sat,incsat,maxsat,smt}-cdf.pdf : Performance curves for the different setups (linear scale).
+* table-{sat,incsat,maxsat,smt,scheduling}.txt : Basic performance measures for the different setups.
+* {sat,incsat,maxsat,smt,scheduling}-cdf.pdf : Performance curves for the different setups (linear scale).
 * {sat,incsat,maxsat,smt}-cdf-logscale.pdf : Performance curves for the different setups (logarithmic scale).
 
   - Note that for IncSAT, MaxSAT, and SMT, only completely solved inputs are counted as solved in these plots. Inputs where some number of queries / increments / solution costs have been solved are not visualized.
@@ -160,6 +158,23 @@ The produced output contains the following files:
 * 1v1-overhead-solve-vs-check-*.pdf : Per-instance performance comparison of solving time vs. checking time with monolithic proof production.
 
 In each output, "c1" represents single-core runs, "c8" eight-core runs, etc.
+
+### Expected results
+
+Precisely quantifying the expected performance of the experiments is difficult since deviations in the used hardware can result in significantly different performance measures. That said, we now provide a number of qualitative indicators you should be able to confirm based on the produced plots and tables if everything went smoothly:
+
+* `table-sat.txt`, `sat-cdf(-logscale).pdf` : The parallel configurations generally outperform the sequential variants in terms of more solved instances and lower PAR-2 scores. The "mixed" and "streamlined" configurations are expected to perform the best whereas the proof-backed "rtcheck" and "monol" variants incur some additional overhead.
+
+  - Note that the proof-backed variants are based on a different portfolio (CaDiCaL only) than the unchecked variants (Kissat and others). Due to orthogonal performance of the solver backends, it is normal that the proof-backed variants perform better than the unchecked variants on some instances.
+
+* `table-incsat.txt`, `incsat-cdf(-logscale).pdf` : The parallel variants **do not necessarily** outperform the sequential variants, reason being that the overhead of parallel execution is often not worthwhile for many of the considered inputs. The variants with proof checking ("rtcheck") are expected to perform worse than the unchecked variants.
+* `table-maxsat.txt`, `maxsat-cdf(-logscale).pdf` : The number of optimal instances may be rather low especially in the "small" demo. This can also lead to very low "LB" scores and few (or none) data points in the CDF plot. The UB score (i.e., overall found solution quality over time), however, should clearly show the benefits of the parallel execution as running times increase.
+* `table-smt.txt`, `smt-cdf(-logscale).pdf` : Solved instances should be larger and PAR-2 score should be lower for the parallel variant. The CDF plot should show that the parallel variant consistently performs better (beginning at some minimum running time).
+* `table-scheduling.txt`, `scheduling-cdf.pdf` : The larger-scale variant should solve more instances overall and dominate the performance of the lower-scale variant in the CDF plot (i.e., solved instances over time).
+* `maxsat-quality-{lb,ub}.pdf` : The progression of lower bounds ("LB") may be rather uninteresting (or completely empty) if few instances (or none) were solved to completion. The progression of upper bounds ("UB") should however show better scores for the parallel variant, especially at longer running times.
+* `1v1-overhead-over-mixed-*.pdf` : The checked variant should generally incur some overhead (i.e., points mostly above the diagonal), which can be especially large for very low running times. The overhead is expected to be higher for the parallel variant than for the sequential variant.
+* `1v1-overhead-*-rtcheck.pdf` : The measured overhead should generally be lower than for monolithic proof production (`1v1-overhead-over-mixed-*-monolproof.pdf`) and be mostly independent of the scale of solving (i.e., the points are distributed similarly for the sequential vs. parallel variant).
+* `1v1-overhead-solve-vs-check-*.pdf` : The time needed for checking should be significantly lower than for solving in the sequential case. In the parallel case, checking times may be closer to the solving time.
 
 
 ## Custom Experiments
