@@ -193,7 +193,6 @@
 /app/benchmarks/sat/753ca299a6ab46e28ece1aefa38f4947-oski15a01b01s_opt.cnf.xz
 /app/benchmarks/sat/42f1311ce504db8cc0cb590a568da20a-tseitin_n188_d3.cnf.xz
 /app/benchmarks/sat/296fd43ed40e242875984420f29be73f-oddball_24_5_ttf.normalised.cnf.xz
-/app/benchmarks/sat/54d496c14fd2461642ef6be5341b297b-hwmcc17miters-xits-iso-6s163.sanitized.cnf.xz
 /app/benchmarks/sat/fe9b9a35531e13dab41307e569386dab-lockchart-group1-L220-K317-p8d4j1.normalised.cnf.xz
 /app/benchmarks/sat/3197b65ef50328394a0c9e73281d7122-b20_1.cnf.xz
 /app/benchmarks/sat/5c8f4e54e195d46053b04e232a5661c4-case7.normalised.cnf.xz

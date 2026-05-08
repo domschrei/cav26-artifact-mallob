@@ -85,6 +85,23 @@ $input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
 -title='SMT performance' \
 -sizex=3 -sizey=3 -o=$outputdir/smt-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
 
+# MaxSAT cost progression
+for B in lb ub ; do
+input=""
+for d in $(echo $dir/*-maxsat* | tr ' ' '\n' | sort -V | tac) ; do
+    cat $d/cost-sum-progression.txt | awk '{print $1,$2}' > $d/.plot.lb
+    cat $d/cost-sum-progression.txt | awk '{print $1,$3}' > $d/.plot.ub
+    input="$input $d/.plot.$B -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
+done
+python3 scripts/plot_curves.py \
+$input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
+-extend-to-right -legend-spacing=0 -no-markers \
+-gridx -gridy -labelx='Running time $t$ [s]' -labely='Accumulated bound quality' \
+-title='MaxSAT quality progression: '$B \
+-sizex=3 -sizey=3 -o=$outputdir/maxsat-quality-$B.pdf >> $outputdir/plotting-logs.txt
+done
+
+
 ####################################################################################
 # TABLES
 ####################################################################################
@@ -116,11 +133,13 @@ done
 
 # MaxSAT
 (
-echo "Run #optsolved PAR2 avgtime"
+echo "Run #optsolved PAR2 avgtime LB-score UB-score"
 for d in $(echo $dir/*-maxsat* | tr ' ' '\n' | sort -V) ; do
     nbenchs=$(cat $d/commands.txt | wc -l)
+    score_lb=$(cat $d/cost-sum-progression.txt | tail -1 | awk '{print $2}')
+    score_ub=$(cat $d/cost-sum-progression.txt | tail -1 | awk '{print $3}')
     cat $d/results.txt | awk '$3 < '$TIMELIM' && ($2 == "SATISFIABLE" || $2 == "OPTIMUM_FOUND") {nsat+=1; ssat+=$3}\
-      END {print "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat, (ssat + ('$nbenchs'-nsat)*2*'$TIMELIM')/('$nbenchs'), nsat, ssat/nsat}'
+      END {print "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat, (ssat + ('$nbenchs'-nsat)*2*'$TIMELIM')/('$nbenchs'), nsat, ssat/nsat, '$score_lb', '$score_ub'}'
 done
 ) | column -t > $outputdir/table-maxsat.txt
 

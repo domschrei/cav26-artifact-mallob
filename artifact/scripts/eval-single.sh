@@ -64,7 +64,7 @@ for d in $dir/*/ ; do
         fi
 
         # if (( $(echo "$time >= $TIMELIM" | bc -l) )); then  #bc not default available on all platforms
-	if awk "BEGIN {exit !($time >= $TIMELIM)}"; then
+        if awk "BEGIN {exit !($time >= $TIMELIM)}"; then
             res="UNKNOWN"
         fi
 
@@ -85,6 +85,14 @@ for d in $dir/*/ ; do
 
     echo "$id $res $time $cost $chktime" >> $dir/results.txt
 
+    if ! [ -z "$inst" ] && [ -f "$(dirname "$inst")/../best-known-costs.txt" ]; then
+        bestknowncost=$(grep -E "^$(basename $inst).xz " $(dirname "$inst")/../best-known-costs.txt | awk '{print $2}' | grep -oE "[0-9]+")
+        if ! [ -z "$bestknowncost" ]; then
+            grep -oE '^c [0-9\.]+ 0 .* new bounds: \([0-9]+,[0-9]+\)' $d/0/log.0 | awk '{print $2,$NF}' | sed 's/(//g;s/)//g;s/,/ /g'\
+             | awk 'BEGIN {l=1/('$bestknowncost'+1); u=0} {nl=($2+1)/('$bestknowncost'+1); nu=('$bestknowncost'+1)/($3+1); print $1, l, u, nl, nu; l=nl; u=nu}' > $d/cost-progression.txt
+        fi
+    fi
+
     fsmt="$d/out.smt2"
     if [ -f "$fsmt" ]; then
         nsolved=$(grep -E "^(un)?sat$" $fsmt | wc -l)
@@ -93,7 +101,7 @@ for d in $dir/*/ ; do
         fi
         nqueries=$(grep '(check-sat)' $inst | wc -l)
          # if (( $(echo "$time >= $TIMELIM" |bc -l) )); then  #replaced bc with awk
-	if awk "BEGIN {exit !($time >= $TIMELIM)}"; then
+        if awk "BEGIN {exit !($time >= $TIMELIM)}"; then
             res="UNKNOWN"
         fi
     else
@@ -102,6 +110,9 @@ for d in $dir/*/ ; do
     fi
     echo "$id $nsolved" >> $dir/solvedqueries.txt
 done
+
+touch .empty
+cat .empty $(find $dir/*/ -name 'cost-progression.txt') | sort -g | awk '{l=l-$2+$4; u=u-$3+$5; print $1,l,u}' > $dir/cost-sum-progression.txt
 
 cat $dir/results.txt | awk '$2 != "UNKNOWN" && $3 < '$TIMELIM' {print $3}' | sort -g\
  | awk 'BEGIN{print 0,0} {print $1,(NR-1); print $1,NR}' > $dir/cdf.txt

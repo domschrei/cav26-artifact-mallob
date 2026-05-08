@@ -32,19 +32,19 @@ scripts/run-benchmark.sh -mono-app=SATWITHPRE -pl=1 -pb=0
 
 banner_run_suite "[${scale}x] Incremental SAT solving"
 BENCHMARKFILE=scripts/selection-incsat-demo-small.txt BASEDIR=$basedir/$suite_idx-c$scale-incsat/ \
-scripts/run-benchmark.sh -mono-app=INCSAT
+scripts/run-benchmark.sh -mono-app=INCSAT -isp=0
 
 banner_run_suite "[${scale}x] Incremental SAT solving, real-time proof checking"
 BENCHMARKFILE=scripts/selection-incsat-demo-small.txt BASEDIR=$basedir/$suite_idx-c$scale-incsat-rtcheck/ \
-scripts/run-benchmark.sh -mono-app=INCSAT -otfc=1 -otfci=1
+scripts/run-benchmark.sh -mono-app=INCSAT -otfc=1 -otfci=1 -isp=0
 
 banner_run_suite "[${scale}x] MaxSAT solving"
 BENCHMARKFILE=scripts/selection-maxsat-demo-small.txt BASEDIR=$basedir/$suite_idx-c$scale-maxsat/ \
-scripts/run-benchmark.sh -mono-app=MAXSAT -maxsat-searchers=1
+scripts/run-benchmark.sh -mono-app=MAXSAT -maxsat-searchers=1 -isp=0
 
 banner_run_suite "[${scale}x] SMT solving"
 BENCHMARKFILE=scripts/selection-smt-demo-small.txt BASEDIR=$basedir/$suite_idx-c$scale-smt/ \
-NPROCS=2 scripts/run-benchmark.sh -mono-app=SMT -md=1
+NPROCS=2 scripts/run-benchmark.sh -mono-app=SMT -md=1 -isp=0
 
 
 # Parallel setup (4x8 threads)

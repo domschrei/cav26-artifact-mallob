@@ -11,7 +11,7 @@ Justification for the badges:
 
   - Since our tool paper does not come with its own original experiments but instead discusses and re-examines experimental results from a wide range of prior publications, we refer to the supplements of the according papers for reproducing the respective experiments. In the scope of this artifact, we decided to instead provide a **broad experimental demonstration** of all major capabilities of the Mallob system at a shared-memory level, showing some selected performance measures for each application at a small scale.
 
-  - We also provide the resources required to run distributed experiments; however, since these are heavily dependent on the concrete computational environment at hand, we cannot offer a self-contained, end-to-end, one-size-fits-all scripting pipeline in this setting.
+  - We also provide the sources and scripts required to run distributed experiments; however, since these are heavily dependent on the concrete computational environment at hand, we cannot offer a self-contained, end-to-end, one-size-fits-all pipeline in this setting.
 
 * **Reusable:** Mallob is MIT-licensed (+ LGPL dual license) and comes with extensive documentation and tests.
 
@@ -112,9 +112,25 @@ All output written to /app/share/mallob-123456789abc-123456789/output-987654321/
 ####################################################################################
 ```
 
-As a basic sanity check, visit the indicated output directory on your host system (i.e., outside of Docker) and open the file `sat-cdf.pdf`, which should feature performance lines for eight approaches.
+As a basic sanity check, you can read the basic performance table gathered for SAT solving and should get output like this:
 
-Please note that the experiments of the smoke test are **not** indicative of the different approaches' performance, since the timeouts, scales, and benchmark sets are far to small/low to arrive at meaningful data.
+```
+$ cat /app/share/mallob-123456789abc-123456789/output-987654321/table-sat.txt
+_                   overall  _        satisf.  _         unsatisf.  _
+Run                 #solved  PAR2     #solved  avgtime   #solved    avgtime
+c1-sat-mixed        11       4.51659  4        0.040775  7          0.0241091
+c1-sat-monolproof   11       4.54403  4        0.107934  7          0.0641143
+c1-sat-rtcheck      8        6.03196  3        0.14766   5          0.039245
+c1-sat-streamlined  12       4.05699  4        0.244611  8          0.020179
+c8-sat-mixed        13       3.60742  5        0.391268  8          0.0240116
+c8-sat-monolproof   11       4.55621  4        0.117328  7          0.093557
+c8-sat-rtcheck      13       3.87363  6        1.19653   7          0.0419234
+c8-sat-streamlined  12       4.02875  4        0.103426  8          0.0201673
+```
+
+Similarly, if you visit the indicated output directory on your host system (i.e., outside of Docker) and open the file `sat-cdf-logscale.pdf`, you should be able to see performance lines for the same eight runs.
+
+**Note:** The experiments of the smoke test are **not** indicative of the different approaches' performance, since the timeouts, scales, and benchmark sets are far too small/low to arrive at meaningful data.
 
 
 ## Full Review
@@ -133,7 +149,8 @@ scripts/eval-test-demo.sh /app/share/mallob-123456789abc-123456789
 The produced output contains the following files:
 
 * table-{sat,incsat,maxsat,smt}.txt : Basic performance measures for the different setups.
-* {sat,incsat,maxsat,smt}.txt : Performance curves for the different setups.
+* {sat,incsat,maxsat,smt}-cdf.pdf : Performance curves for the different setups (linear scale).
+* {sat,incsat,maxsat,smt}-cdf-logscale.pdf : Performance curves for the different setups (logarithmic scale).
 
   - Note that for IncSAT, MaxSAT, and SMT, only completely solved inputs are counted as solved in these plots. Inputs where some number of queries / increments / solution costs have been solved are not visualized.
 
@@ -152,6 +169,8 @@ The setup we provide can be easily extended to run custom experiments. Consult, 
 ## Bare Metal Setup
 
 For distributed experiments beyond the scope of this artifact's reproducibility, we also provide a bare metal setup of Mallob, i.e., for usage **outside** of the provided Docker container.
+
+**Note:** Experiments conducted on bare-metal hardware must be evaluated (`eval-*.sh`) **outside** of the Docker container, and experiments conducted in the Docker environment must be evaluated **within** the Docker environment.
 
 The following packages must be installed on your host system (assuming an Ubuntu-like OS):
 
