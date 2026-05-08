@@ -151,7 +151,7 @@ for d in $(echo $dir/*-maxsat* | tr ' ' '\n' | sort -V) ; do
     score_lb=$(cat $d/cost-sum-progression.txt | tail -1 | awk '{print $2}')
     score_ub=$(cat $d/cost-sum-progression.txt | tail -1 | awk '{print $3}')
     cat $d/results.txt | awk 'BEGIN{nsat=0; ssat=0} $3 < '$TIMELIM' && ($2 == "SATISFIABLE" || $2 == "OPTIMUM_FOUND") {nsat+=1; ssat+=$3}\
-      END {print "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat, (ssat + ('$nbenchs'-nsat)*2*'$TIMELIM')/('$nbenchs'), nsat, (nsat==0)?0:(ssat/nsat), '$score_lb', '$score_ub'}'
+      END {print "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat, (ssat + ('$nbenchs'-nsat)*2*'$TIMELIM')/('$nbenchs'), (nsat==0)?0:(ssat/nsat), '$score_lb', '$score_ub'}'
 done
 ) | column -t > $outputdir/table-maxsat.txt
 
