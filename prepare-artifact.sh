@@ -11,7 +11,7 @@ cd artifact
     # Prepare Docker image
     sed -i 's/^git checkout .*/git checkout '$MALLOB_HASH'/g' ../Dockerfile
     docker build --progress=plain -f ../Dockerfile -t mallob-cav26 .
-    docker save mallob-cav26 | gzip > mallob-cav26-img.tar.gz
+    docker save mallob-cav26 | gzip -9 > mallob-cav26-img.tar.gz
 
     #if false; then
     # Prepare bare-metal Mallob installation

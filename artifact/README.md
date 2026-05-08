@@ -187,7 +187,7 @@ The setup we provide can be easily extended to run custom experiments. Consult, 
 
 ## Bare Metal Setup
 
-For distributed experiments beyond the scope of this artifact's reproducibility, we also provide a bare metal setup of Mallob, i.e., for usage **outside** of the provided Docker container.
+For experiments beyond the scope of this artifact's reproducibility, we also provide a bare metal setup of Mallob, i.e., for usage **outside** of the provided Docker container.
 
 **Note:** Experiments conducted on bare-metal hardware must be evaluated (`eval-*.sh`) **outside** of the Docker container, and experiments conducted in the Docker environment must be evaluated **within** the Docker environment.
 
@@ -201,9 +201,24 @@ You should then be able to unpack and build Mallob as follows:
 
 ```bash
 unzip mallob-cav26.zip
-cd mallob-cav26
+mv mallob-cav26 mallob
+cd mallob
 bash scripts/setup/cmake-make.sh build -DMALLOB_MAX_N_APPTHREADS_PER_PROCESS=64 -DMALLOB_APP_SMT=1 -DMALLOB_APP_MAXSAT=1 -DMALLOB_BUILD_IMPCHECK=1
 ```
 
-If you are working with a SLURM-managed HPC cluster, please consult the SLURM-specific documentation for Mallob at the sub-directory `mallob-cav26/docs/clusters.md`. Otherwise, any subsequent steps heavily depend on your hardware and system environment, which unfortunately means that we cannot provide any specific instructions for launching the distributed program.
+To use our experimental scripting setup outside of Docker at a shared-memory level, you need to extract the directories `benchmarks/` and `scripts/` from the Docker container (as described at "Benchmarks" above).
+Make sure that your directory structure looks like this:
+
+```
+<base directory>
+├── benchmarks
+├── mallob
+|   ├── build
+|   └── ...
+└── scripts
+```
+
+You should then be able to run experiments from the base directory, e.g., via `scripts/run-test-smoke.sh`.
+
+If you are working with a SLURM-managed HPC cluster, please consult the SLURM-specific documentation for Mallob at the sub-directory `mallob/docs/clusters.md`. Otherwise, any subsequent steps heavily depend on your hardware and system environment, which unfortunately means that we cannot provide any specific instructions for launching the distributed program. Let us know if you experience any troubles and we may be able to assist!
 
