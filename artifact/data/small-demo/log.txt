@@ -16673,22 +16673,24 @@ Fri May  8 13:25:36 CEST 2026 END 200/200 /app/benchmarks/smt/SMT-LIB/non-increm
 RUNNING SUITE 17/18 - [4x] Scheduling
 ####################################################################################
 
-Base output directory: /nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/17-c32-scheduling/
+Base output directory: /nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/1-c4-scheduling/
 
-Fri May  8 13:25:36 CEST 2026 BEGIN 1/1 
-Executing: mpirun --mca btl_tcp_if_include eth0 --allow-run-as-root -np 4 --bind-to none --oversubscribe build/mallob -mono= -jwl=1800 -T=1810 -wam=10000 -pre-cleanup=1 -q=1 -log=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/17-c32-scheduling/1 -tmp=/tmp -proof-dir=/tmp/proof -sro=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/17-c32-scheduling/1/processed-jobs.out -trace-dir=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/17-c32-scheduling/1/ -os=1 -v=4 -iff=0 -s2f=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/17-c32-scheduling/1/res.txt -smt-out-file=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/17-c32-scheduling/1/out.smt2 -rpa=1 -pph=4 -mlpt=20000000 -t=1 -cm=1 -seed=0 -isp=1 -js=2 -jc=2 -tst=1 -terminate-abruptly=1 -mono-app=SAT -job-desc-template=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/scripts/selection-sat-demo-small.txt -job-template=templates/tj.json -client-template=templates/tc.json -c=1 -J=100 -ajpc=4 -jwl=60
-Fri May  8 13:55:47 CEST 2026 END 1/1 
+Fri May  8 15:36:42 CEST 2026 SUITE 17/18 BEGIN 1/1
+ --> Detected Bare-Metal run, stripping /app/ from the instance path(s)
+Executing: mpirun --mca btl_tcp_if_include eth0 --allow-run-as-root -np 4 --bind-to none --oversubscribe build/mallob -mono= -jwl=1800 -T=1810 -wam=10000 -pre-cleanup=1 -q=1 -log=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/1-c4-scheduling/1 -tmp=/tmp -proof-dir=/tmp/proof -sro=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/1-c4-scheduling/1/processed-jobs.out -trace-dir=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/1-c4-scheduling/1/ -os=1 -v=4 -iff=0 -s2f=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/1-c4-scheduling/1/res.txt -smt-out-file=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/1-c4-scheduling/1/out.smt2 -rpa=1 -pph=4 -mlpt=20000000 -t=1 -cm=1 -seed=0 -isp=1 -js=2 -jc=2 -tst=1 -terminate-abruptly=1 -mono-app=SAT -job-desc-template=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/scripts/selection-sat-demo-small.txt -job-template=templates/tj.json -client-template=templates/tc.json -c=1 -J=100 -ajpc=4 -ljpc=8 -jwl=60
+Fri May  8 15:56:55 CEST 2026 SUITE 17/18 END 1/1
 
 
 ####################################################################################
 RUNNING SUITE 18/18 - [32x] Scheduling
 ####################################################################################
 
-Base output directory: /nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/18-c32-scheduling/
+Base output directory: /nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/2-c32-scheduling/
 
-Fri May  8 13:55:47 CEST 2026 BEGIN 1/1 
-Executing: mpirun --mca btl_tcp_if_include eth0 --allow-run-as-root -np 32 --bind-to none --oversubscribe build/mallob -mono= -jwl=1800 -T=1810 -wam=10000 -pre-cleanup=1 -q=1 -log=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/18-c32-scheduling/1 -tmp=/tmp -proof-dir=/tmp/proof -sro=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/18-c32-scheduling/1/processed-jobs.out -trace-dir=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/18-c32-scheduling/1/ -os=1 -v=4 -iff=0 -s2f=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/18-c32-scheduling/1/res.txt -smt-out-file=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778168888/18-c32-scheduling/1/out.smt2 -rpa=1 -pph=32 -mlpt=20000000 -t=1 -cm=1 -seed=0 -isp=1 -js=16 -jc=2 -tst=1 -terminate-abruptly=1 -mono-app=SAT -job-desc-template=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/scripts/selection-sat-demo-small.txt -job-template=templates/tj.json -client-template=templates/tc.json -c=1 -J=100 -ajpc=4 -jwl=60
-Fri May  8 14:25:57 CEST 2026 END 1/1 
+Fri May  8 15:56:55 CEST 2026 SUITE 18/18 BEGIN 1/1
+ --> Detected Bare-Metal run, stripping /app/ from the instance path(s)
+Executing: mpirun --mca btl_tcp_if_include eth0 --allow-run-as-root -np 32 --bind-to none --oversubscribe build/mallob -mono= -jwl=1800 -T=1810 -wam=10000 -pre-cleanup=1 -q=1 -log=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/2-c32-scheduling/1 -tmp=/tmp -proof-dir=/tmp/proof -sro=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/2-c32-scheduling/1/processed-jobs.out -trace-dir=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/2-c32-scheduling/1/ -os=1 -v=4 -iff=0 -s2f=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/2-c32-scheduling/1/res.txt -smt-out-file=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/share/mallob-hellman-1778247397/2-c32-scheduling/1/out.smt2 -rpa=1 -pph=32 -mlpt=20000000 -t=1 -cm=1 -seed=0 -isp=1 -js=16 -jc=2 -tst=1 -terminate-abruptly=1 -mono-app=SAT -job-desc-template=/nfs/home/nrigiluperti/cav26-artifact-mallob/artifact/scripts/selection-sat-demo-small.txt -job-template=templates/tj.json -client-template=templates/tc.json -c=1 -J=100 -ajpc=4 -ljpc=8 -jwl=60
+Fri May  8 16:13:59 CEST 2026 SUITE 18/18 END 1/1
 
 
 ####################################################################################
