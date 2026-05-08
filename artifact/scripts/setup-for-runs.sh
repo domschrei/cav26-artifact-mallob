@@ -13,9 +13,11 @@ suite_idx=0 # counter for different suites
 
 function banner_run_suite() {
     suite_idx=$(($suite_idx + 1))
+    SUITE_PROGRESS="SUITE $suite_idx/$suite_count"
+    export SUITE_PROGRESS
     echo
     echo "####################################################################################"
-    echo "RUNNING SUITE $suite_idx/$suite_count - $@"
+    echo "RUNNING $SUITE_PROGRESS - $@"
     echo "####################################################################################"
     echo
 }
