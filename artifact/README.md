@@ -40,6 +40,7 @@ This artifact contains the following files:
 * LICENSE.txt : MIT license
 * mallob-cav26.zip : The Mallob project, including its source code, scripts, and documentation. A snapshot of [Mallob's GitHub repository](https://github.com/domschrei/mallob)
 * mallob-cav26-img.tar : A Docker image you can readily import and enter, coming with a pre-installed and set up Mallob, diverse benchmarks, and convenience scripts for running experiments
+* data/ : Sample experimental data and plots produced with the artifact on our end.
 
 
 ## Setup
@@ -175,6 +176,8 @@ Precisely quantifying the expected performance of the experiments is difficult s
 * `1v1-overhead-over-mixed-*.pdf` : The checked variant should generally incur some overhead (i.e., points mostly above the diagonal), which can be especially large for very low running times. The overhead is expected to be higher for the parallel variant than for the sequential variant.
 * `1v1-overhead-*-rtcheck.pdf` : The measured overhead should generally be lower than for monolithic proof production (`1v1-overhead-over-mixed-*-monolproof.pdf`) and be mostly independent of the scale of solving (i.e., the points are distributed similarly for the sequential vs. parallel variant).
 * `1v1-overhead-solve-vs-check-*.pdf` : The time needed for checking should be significantly lower than for solving in the sequential case. In the parallel case, checking times may be closer to the solving time.
+
+You can also compare the data and plots obtained from your runs with the sample data we provide in the artifact (`data/` directory).
 
 
 ## Custom Experiments

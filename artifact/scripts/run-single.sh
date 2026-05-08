@@ -20,16 +20,21 @@ if [ $jobslots == 0 ]; then jobslots=1 ; fi
 input="$1"
 shift 1
 
-# if [ "$NODOCKER" = "1" ]; then
-  # echo " --> NODOCKER option active. Stripping /app/ from the instance path "
-  # input="../$(echo "$input" | sed 's|^/app/||')"
-# fi
-#
-if ! [ -z "$input" ] && ! [ -d /app/benchmarks ]; then
-  echo " --> Detected Bare-Metal run, stripping /app/ from the instance path"
-  input="../$(echo "$input" | sed 's|^/app/||')"
-fi
+templatereplaced=false
+if ! [ -d /app/benchmarks ]; then
+  echo " --> Detected Bare-Metal run, stripping /app/ from the instance path(s)"
 
+  if ! [ -z "$input" ]; then
+    input="../$(echo "$input" | sed 's|^/app/||')"
+  fi
+
+  if echo "$@" | grep -q "job-desc-template="; then
+    templatefile=$(echo "$@" | grep -oP "job-desc-template=.*? " | sed 's/job-desc-template=//g;s/ //g')
+    cp $templatefile ${templatefile}~
+    sed -i 's|^/app/|../|g' $templatefile
+    templatereplaced=true
+  fi
+fi
 
 
 # decompress as needed
@@ -63,4 +68,8 @@ if [ "x$MONOPROOF" == "x1" ] && [ -f $globallogdir/res.txt ] && grep -qE "^s UNS
 fi
 if [ -f $globallogdir/proof.rlrup ]; then
   rm $globallogdir/proof.rlrup
+fi
+
+if $templatereplaced ; then
+  mv ${templatefile}~ $templatefile
 fi

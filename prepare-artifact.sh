@@ -33,7 +33,7 @@ cd artifact
 cd ..
 
 # Bundle everything into a single ZIP
-zip -r cav26-mallob-artifact.zip artifact/{LICENSE.txt,README.md,mallob-cav26.zip,mallob-cav26-img.tar.gz}
+zip -r cav26-mallob-artifact.zip artifact/{data,LICENSE.txt,README.md,mallob-cav26.zip,mallob-cav26-img.tar.gz}
 
 tend=$(date +%s)
 
