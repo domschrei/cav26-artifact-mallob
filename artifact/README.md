@@ -154,6 +154,7 @@ The produced output contains the following files:
 
   - Note that for IncSAT, MaxSAT, and SMT, only completely solved inputs are counted as solved in these plots. Inputs where some number of queries / increments / solution costs have been solved are not visualized.
 
+* maxsat-quality-{lb,ub}.pdf : Whenever MallobMax finds an updated (lower|upper) bound for the objective function, the bound is rated with a number between 0 and 1 (based on the best known solution for the instance). The plot shows, similar to the CDF plots above, how the sum of these scores progresses over time.
 * 1v1-overhead-over-mixed-*.pdf : Per-instance performance comparison of monolithic proof production with unchecked, mixed-portfolio solving.
 * 1v1-overhead-*-rtcheck.pdf : Per-instance performance comparison of solving including real-time proof checking with unchecked, mixed-portfolio solving.
 * 1v1-overhead-solve-vs-check-*.pdf : Per-instance performance comparison of solving time vs. checking time with monolithic proof production.
