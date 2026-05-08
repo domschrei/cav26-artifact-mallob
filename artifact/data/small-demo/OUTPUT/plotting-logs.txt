@@ -1,0 +1,349 @@
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', '-l=c32-sat-streamlined', 'data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', '-l=c32-sat-rtcheck', 'data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', '-l=c32-sat-monolproof', 'data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', '-l=c32-sat-mixed', 'data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', '-l=c1-sat-streamlined', 'data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', '-l=c1-sat-rtcheck', 'data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', '-l=c1-sat-monolproof', 'data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt', '-l=c1-sat-mixed', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=SAT solving performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//sat-cdf.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', 'data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', 'data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', 'data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', 'data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', 'data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt', '-l=c32-sat-streamlined', '-l=c32-sat-rtcheck', '-l=c32-sat-monolproof', '-l=c32-sat-mixed', '-l=c1-sat-streamlined', '-l=c1-sat-rtcheck', '-l=c1-sat-monolproof', '-l=c1-sat-mixed', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=SAT solving performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//sat-cdf.pdf']
+Namespace(logx=False, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', 'data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', 'data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', 'data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', 'data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', 'data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt']], y2data=None, label=[['c32-sat-streamlined'], ['c32-sat-rtcheck'], ['c32-sat-monolproof'], ['c32-sat-mixed'], ['c1-sat-streamlined'], ['c1-sat-rtcheck'], ['c1-sat-monolproof'], ['c1-sat-mixed']], minx=0.0, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='\\# instances solved in $\\leq$ t', labely2=None, title='SAT solving performance', o='data/mallob-hellman-1778168888//output-1778244783//sat-cdf.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-sat-streamlined', 'c32-sat-rtcheck', 'c32-sat-monolproof', 'c32-sat-mixed', 'c1-sat-streamlined', 'c1-sat-rtcheck', 'c1-sat-monolproof', 'c1-sat-mixed'])
+Files specified
+[('data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', False), ('data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', False), ('data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', False), ('data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', False), ('data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', False), ('data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', False), ('data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', False), ('data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', False), ('data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', False), ('data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', False), ('data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt', False)]
+data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt : 126 vals
+data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt : 108 vals
+data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt : 90 vals
+data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt : 124 vals
+data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt : 22 vals
+data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt : 44 vals
+data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt : 52 vals
+data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt : 66 vals
+0
+1
+2
+3
+4
+5
+6
+7
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', '-l=c32-sat-streamlined', 'data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', '-l=c32-sat-rtcheck', 'data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', '-l=c32-sat-monolproof', 'data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', '-l=c32-sat-mixed', 'data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', '-l=c1-sat-streamlined', 'data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', '-l=c1-sat-rtcheck', 'data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', '-l=c1-sat-monolproof', 'data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt', '-l=c1-sat-mixed', '-xy', '-logx', '-minx=0.01', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=SAT solving performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//sat-cdf-logscale.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', 'data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', 'data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', 'data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', 'data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', 'data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt', '-l=c32-sat-streamlined', '-l=c32-sat-rtcheck', '-l=c32-sat-monolproof', '-l=c32-sat-mixed', '-l=c1-sat-streamlined', '-l=c1-sat-rtcheck', '-l=c1-sat-monolproof', '-l=c1-sat-mixed', '-xy', '-logx', '-minx=0.01', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=SAT solving performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//sat-cdf-logscale.pdf']
+Namespace(logx=True, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', 'data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', 'data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', 'data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', 'data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', 'data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt']], y2data=None, label=[['c32-sat-streamlined'], ['c32-sat-rtcheck'], ['c32-sat-monolproof'], ['c32-sat-mixed'], ['c1-sat-streamlined'], ['c1-sat-rtcheck'], ['c1-sat-monolproof'], ['c1-sat-mixed']], minx=0.01, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='\\# instances solved in $\\leq$ t', labely2=None, title='SAT solving performance', o='data/mallob-hellman-1778168888//output-1778244783//sat-cdf-logscale.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-sat-streamlined', 'c32-sat-rtcheck', 'c32-sat-monolproof', 'c32-sat-mixed', 'c1-sat-streamlined', 'c1-sat-rtcheck', 'c1-sat-monolproof', 'c1-sat-mixed'])
+Files specified
+[('data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', False), ('data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', False), ('data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', False), ('data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', False), ('data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', False), ('data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt', False), ('data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt', False), ('data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt', False), ('data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt', False), ('data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt', False), ('data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt', False)]
+data/mallob-hellman-1778168888//12-c32-sat-streamlined/cdf.txt : 126 vals
+data/mallob-hellman-1778168888//11-c32-sat-rtcheck/cdf.txt : 108 vals
+data/mallob-hellman-1778168888//10-c32-sat-monolproof/cdf.txt : 90 vals
+data/mallob-hellman-1778168888//9-c32-sat-mixed/cdf.txt : 124 vals
+data/mallob-hellman-1778168888//4-c1-sat-streamlined/cdf.txt : 22 vals
+data/mallob-hellman-1778168888//3-c1-sat-rtcheck/cdf.txt : 44 vals
+data/mallob-hellman-1778168888//2-c1-sat-monolproof/cdf.txt : 52 vals
+data/mallob-hellman-1778168888//1-c1-sat-mixed/cdf.txt : 66 vals
+0
+1
+2
+3
+4
+5
+6
+7
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', '-l=c32-incsat-rtcheck', 'data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', '-l=c32-incsat', 'data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', '-l=c1-incsat-rtcheck', 'data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt', '-l=c1-incsat', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=Incremental SAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//incsat-cdf.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', 'data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt', '-l=c32-incsat-rtcheck', '-l=c32-incsat', '-l=c1-incsat-rtcheck', '-l=c1-incsat', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=Incremental SAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//incsat-cdf.pdf']
+Namespace(logx=False, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', 'data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt']], y2data=None, label=[['c32-incsat-rtcheck'], ['c32-incsat'], ['c1-incsat-rtcheck'], ['c1-incsat']], minx=0.0, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='\\# instances solved in $\\leq$ t', labely2=None, title='Incremental SAT performance', o='data/mallob-hellman-1778168888//output-1778244783//incsat-cdf.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-incsat-rtcheck', 'c32-incsat', 'c1-incsat-rtcheck', 'c1-incsat'])
+Files specified
+[('data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', False), ('data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', False), ('data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt', False)]
+data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt : 164 vals
+data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt : 172 vals
+data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt : 152 vals
+data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt : 160 vals
+0
+1
+2
+3
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', '-l=c32-incsat-rtcheck', 'data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', '-l=c32-incsat', 'data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', '-l=c1-incsat-rtcheck', 'data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt', '-l=c1-incsat', '-xy', '-logx', '-minx=0.01', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=Incremental SAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//incsat-cdf-logscale.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', 'data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt', '-l=c32-incsat-rtcheck', '-l=c32-incsat', '-l=c1-incsat-rtcheck', '-l=c1-incsat', '-xy', '-logx', '-minx=0.01', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=Incremental SAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//incsat-cdf-logscale.pdf']
+Namespace(logx=True, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', 'data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', 'data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt']], y2data=None, label=[['c32-incsat-rtcheck'], ['c32-incsat'], ['c1-incsat-rtcheck'], ['c1-incsat']], minx=0.01, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='\\# instances solved in $\\leq$ t', labely2=None, title='Incremental SAT performance', o='data/mallob-hellman-1778168888//output-1778244783//incsat-cdf-logscale.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-incsat-rtcheck', 'c32-incsat', 'c1-incsat-rtcheck', 'c1-incsat'])
+Files specified
+[('data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', False), ('data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt', False), ('data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt', False), ('data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt', False)]
+data/mallob-hellman-1778168888//14-c32-incsat-rtcheck/cdf.txt : 164 vals
+data/mallob-hellman-1778168888//13-c32-incsat/cdf.txt : 172 vals
+data/mallob-hellman-1778168888//6-c1-incsat-rtcheck/cdf.txt : 152 vals
+data/mallob-hellman-1778168888//5-c1-incsat/cdf.txt : 160 vals
+0
+1
+2
+3
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', '-l=c32-maxsat', 'data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt', '-l=c1-maxsat', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=MaxSAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//maxsat-cdf.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', 'data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt', '-l=c32-maxsat', '-l=c1-maxsat', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=MaxSAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//maxsat-cdf.pdf']
+Namespace(logx=False, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', 'data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt']], y2data=None, label=[['c32-maxsat'], ['c1-maxsat']], minx=0.0, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='\\# instances solved in $\\leq$ t', labely2=None, title='MaxSAT performance', o='data/mallob-hellman-1778168888//output-1778244783//maxsat-cdf.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-maxsat', 'c1-maxsat'])
+Files specified
+[('data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', False), ('data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', False), ('data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt', False)]
+data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt : 38 vals
+data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt : 18 vals
+0
+1
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', '-l=c32-maxsat', 'data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt', '-l=c1-maxsat', '-xy', '-logx', '-minx=0.01', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=MaxSAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//maxsat-cdf-logscale.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', 'data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt', '-l=c32-maxsat', '-l=c1-maxsat', '-xy', '-logx', '-minx=0.01', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=MaxSAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//maxsat-cdf-logscale.pdf']
+Namespace(logx=True, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', 'data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt']], y2data=None, label=[['c32-maxsat'], ['c1-maxsat']], minx=0.01, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='\\# instances solved in $\\leq$ t', labely2=None, title='MaxSAT performance', o='data/mallob-hellman-1778168888//output-1778244783//maxsat-cdf-logscale.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-maxsat', 'c1-maxsat'])
+Files specified
+[('data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', False), ('data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt', False), ('data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt', False)]
+data/mallob-hellman-1778168888//15-c32-maxsat/cdf.txt : 38 vals
+data/mallob-hellman-1778168888//7-c1-maxsat/cdf.txt : 18 vals
+0
+1
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', '-l=c32-smt', 'data/mallob-hellman-1778168888//8-c1-smt/cdf.txt', '-l=c1-smt', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=SMT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//smt-cdf.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', 'data/mallob-hellman-1778168888//8-c1-smt/cdf.txt', '-l=c32-smt', '-l=c1-smt', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=SMT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//smt-cdf.pdf']
+Namespace(logx=False, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', 'data/mallob-hellman-1778168888//8-c1-smt/cdf.txt']], y2data=None, label=[['c32-smt'], ['c1-smt']], minx=0.0, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='\\# instances solved in $\\leq$ t', labely2=None, title='SMT performance', o='data/mallob-hellman-1778168888//output-1778244783//smt-cdf.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-smt', 'c1-smt'])
+Files specified
+[('data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', False), ('data/mallob-hellman-1778168888//8-c1-smt/cdf.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', False), ('data/mallob-hellman-1778168888//8-c1-smt/cdf.txt', False)]
+data/mallob-hellman-1778168888//16-c32-smt/cdf.txt : 206 vals
+data/mallob-hellman-1778168888//8-c1-smt/cdf.txt : 142 vals
+0
+1
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', '-l=c32-smt', 'data/mallob-hellman-1778168888//8-c1-smt/cdf.txt', '-l=c1-smt', '-xy', '-logx', '-minx=0.01', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=SMT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//smt-cdf-logscale.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', 'data/mallob-hellman-1778168888//8-c1-smt/cdf.txt', '-l=c32-smt', '-l=c1-smt', '-xy', '-logx', '-minx=0.01', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=\\# instances solved in $\\leq$ t', '-title=SMT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//smt-cdf-logscale.pdf']
+Namespace(logx=True, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', 'data/mallob-hellman-1778168888//8-c1-smt/cdf.txt']], y2data=None, label=[['c32-smt'], ['c1-smt']], minx=0.01, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='\\# instances solved in $\\leq$ t', labely2=None, title='SMT performance', o='data/mallob-hellman-1778168888//output-1778244783//smt-cdf-logscale.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-smt', 'c1-smt'])
+Files specified
+[('data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', False), ('data/mallob-hellman-1778168888//8-c1-smt/cdf.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//16-c32-smt/cdf.txt', False), ('data/mallob-hellman-1778168888//8-c1-smt/cdf.txt', False)]
+data/mallob-hellman-1778168888//16-c32-smt/cdf.txt : 206 vals
+data/mallob-hellman-1778168888//8-c1-smt/cdf.txt : 142 vals
+0
+1
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//15-c32-maxsat/.plot.lb', '-l=c32-maxsat', 'data/mallob-hellman-1778168888//7-c1-maxsat/.plot.lb', '-l=c1-maxsat', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=Accumulated bound quality', '-title=MaxSAT quality progression: lb', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//maxsat-quality-lb.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//15-c32-maxsat/.plot.lb', 'data/mallob-hellman-1778168888//7-c1-maxsat/.plot.lb', '-l=c32-maxsat', '-l=c1-maxsat', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=Accumulated bound quality', '-title=MaxSAT quality progression: lb', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//maxsat-quality-lb.pdf']
+Namespace(logx=False, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//15-c32-maxsat/.plot.lb', 'data/mallob-hellman-1778168888//7-c1-maxsat/.plot.lb']], y2data=None, label=[['c32-maxsat'], ['c1-maxsat']], minx=0.0, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='Accumulated bound quality', labely2=None, title='MaxSAT quality progression: lb', o='data/mallob-hellman-1778168888//output-1778244783//maxsat-quality-lb.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-maxsat', 'c1-maxsat'])
+Files specified
+[('data/mallob-hellman-1778168888//15-c32-maxsat/.plot.lb', False), ('data/mallob-hellman-1778168888//7-c1-maxsat/.plot.lb', False)]
+[]
+[('data/mallob-hellman-1778168888//15-c32-maxsat/.plot.lb', False), ('data/mallob-hellman-1778168888//7-c1-maxsat/.plot.lb', False)]
+data/mallob-hellman-1778168888//15-c32-maxsat/.plot.lb : 2960 vals
+data/mallob-hellman-1778168888//7-c1-maxsat/.plot.lb : 2541 vals
+0
+1
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//15-c32-maxsat/.plot.ub', '-l=c32-maxsat', 'data/mallob-hellman-1778168888//7-c1-maxsat/.plot.ub', '-l=c1-maxsat', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=Accumulated bound quality', '-title=MaxSAT quality progression: ub', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//maxsat-quality-ub.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//15-c32-maxsat/.plot.ub', 'data/mallob-hellman-1778168888//7-c1-maxsat/.plot.ub', '-l=c32-maxsat', '-l=c1-maxsat', '-xy', '-minx=0', '-maxx=60', '-miny=0', '-extend-to-right', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Running time $t$ [s]', '-labely=Accumulated bound quality', '-title=MaxSAT quality progression: ub', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//maxsat-quality-ub.pdf']
+Namespace(logx=False, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=True, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//15-c32-maxsat/.plot.ub', 'data/mallob-hellman-1778168888//7-c1-maxsat/.plot.ub']], y2data=None, label=[['c32-maxsat'], ['c1-maxsat']], minx=0.0, maxx=60.0, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Running time $t$ [s]', labely='Accumulated bound quality', labely2=None, title='MaxSAT quality progression: ub', o='data/mallob-hellman-1778168888//output-1778244783//maxsat-quality-ub.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-maxsat', 'c1-maxsat'])
+Files specified
+[('data/mallob-hellman-1778168888//15-c32-maxsat/.plot.ub', False), ('data/mallob-hellman-1778168888//7-c1-maxsat/.plot.ub', False)]
+[]
+[('data/mallob-hellman-1778168888//15-c32-maxsat/.plot.ub', False), ('data/mallob-hellman-1778168888//7-c1-maxsat/.plot.ub', False)]
+data/mallob-hellman-1778168888//15-c32-maxsat/.plot.ub : 2960 vals
+data/mallob-hellman-1778168888//7-c1-maxsat/.plot.ub : 2541 vals
+0
+1
+Args before: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//18-c32-scheduling/cdf-accumulated.txt', '-l=c32-scheduling', 'data/mallob-hellman-1778168888//17-c32-scheduling/cdf-accumulated.txt', '-l=c32-scheduling', '-xy', '-minx=0', '-miny=0', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Time since system start [s]', '-labely=\\# solved instances', '-title=Multi-tasking SAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//scheduling-cdf.pdf']
+Args after: ['scripts/plot_curves.py', 'data/mallob-hellman-1778168888//18-c32-scheduling/cdf-accumulated.txt', 'data/mallob-hellman-1778168888//17-c32-scheduling/cdf-accumulated.txt', '-l=c32-scheduling', '-l=c32-scheduling', '-xy', '-minx=0', '-miny=0', '-legend-spacing=0', '-no-markers', '-gridx', '-gridy', '-labelx=Time since system start [s]', '-labely=\\# solved instances', '-title=Multi-tasking SAT performance', '-sizex=3', '-sizey=3', '-o=data/mallob-hellman-1778168888//output-1778244783//scheduling-cdf.pdf']
+Namespace(logx=False, logy=False, y2=False, nomarkers=True, nolinestyles=False, nolines=False, nolegend=False, confidence=False, legendright=False, nolegendborder=False, rect=False, extend_to_right=False, sans_font=False, times_font=False, gridx=True, gridy=True, grid=False, xyc=False, xy=True, potticks=False, potticksx=False, potticksy=False, minorlogticksx=False, minorlogticksy=False, legend_spacing=0.0, lloc=0, sizex=3.0, sizey=3.0, size=None, lw=1, markersize=None, datafile=[['data/mallob-hellman-1778168888//18-c32-scheduling/cdf-accumulated.txt', 'data/mallob-hellman-1778168888//17-c32-scheduling/cdf-accumulated.txt']], y2data=None, label=[['c32-scheduling'], ['c32-scheduling']], minx=0.0, maxx=None, miny=0.0, maxy=None, miny2=None, maxy2=None, labelx='Time since system start [s]', labely='\\# solved instances', labely2=None, title='Multi-tasking SAT performance', o='data/mallob-hellman-1778168888//output-1778244783//scheduling-cdf.pdf', colors='#377eb8,#ff7f00,#e41a1c,#f781bf,#a65628,#4daf4a,#984ea3,#999999,#dede00,#377eb8', markers='^,s,o,+,x,*', linestyles='-.,:,--,-', linewidths='', ticksx='', ticksy='', tickslabelsx='', tickslabelsy='', ticksy2='', topsymbols='', toptexts='', colorslist=['#377eb8', '#ff7f00', '#e41a1c', '#f781bf', '#a65628', '#4daf4a', '#984ea3', '#999999', '#dede00', '#377eb8'], markerslist=['^', 's', 'o', '+', 'x', '*'], linestyleslist=['-.', ':', '--', '-'], linewidthslist=[], ticksxlist=[], ticksylist=[], tickslabelsxlist=[], tickslabelsylist=[], ticksy2list=[], labellist=['c32-scheduling', 'c32-scheduling'])
+Files specified
+[('data/mallob-hellman-1778168888//18-c32-scheduling/cdf-accumulated.txt', False), ('data/mallob-hellman-1778168888//17-c32-scheduling/cdf-accumulated.txt', False)]
+[]
+[('data/mallob-hellman-1778168888//18-c32-scheduling/cdf-accumulated.txt', False), ('data/mallob-hellman-1778168888//17-c32-scheduling/cdf-accumulated.txt', False)]
+data/mallob-hellman-1778168888//18-c32-scheduling/cdf-accumulated.txt : 1 vals
+data/mallob-hellman-1778168888//17-c32-scheduling/cdf-accumulated.txt : 1 vals
+0
+1
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 4.011602, Y 2.215
+benchmarks/sat/f6a085f3c728e53f57542e62df20e56b-crafted_n10_d6_c4_num8.cnf : X 39.771725, Y 29.65
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.137504, Y 0.014
+benchmarks/sat/1c30806c5aa9cd54bf823c20fa078243-oddball_26_5_ttf.normalised.cnf : X 32.314617, Y 8.131
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.149298, Y 0.014
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 5.212286, Y 8.043
+benchmarks/sat/6ff70a3aaf261b35b0b072f454a756be-crafted_n10_d6_c4_num9.cnf : X 43.579906, Y 31.299
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.144192, Y 0.015
+benchmarks/sat/efc1b7cc3861df8c2b68ca10399b794e-oddball_19_4_ttf.normalised.cnf : X 38.859673, Y 56.215
+benchmarks/sat/31e843c53a76ff3961935ad55b953298-sqrt-mitern171.cnf : X 45.368961, Y 46.309
+benchmarks/sat/16c999d046885c8e51f196e60c34d966-aaai10-planning-ipc5-pathways-17-step20.cnf : X 40.004902, Y 38.377
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 14.157663, Y 22.584
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.144467, Y 0.014
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 42.337387, Y 43.936
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 1.591621, Y 0.16
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.16063, Y 0.021
+benchmarks/sat/7bdf3e5401cc263951003b569bcd689c-bv_ILA_Piccolo_BEQ_sanity_transition.cnf : X 40.525837, Y 11.265
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 4.011602, Y 2.215
+benchmarks/sat/f6a085f3c728e53f57542e62df20e56b-crafted_n10_d6_c4_num8.cnf : X 39.771725, Y 29.65
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.137504, Y 0.014
+benchmarks/sat/1c30806c5aa9cd54bf823c20fa078243-oddball_26_5_ttf.normalised.cnf : X 32.314617, Y 8.131
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.149298, Y 0.014
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 5.212286, Y 8.043
+benchmarks/sat/6ff70a3aaf261b35b0b072f454a756be-crafted_n10_d6_c4_num9.cnf : X 43.579906, Y 31.299
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.144192, Y 0.015
+benchmarks/sat/efc1b7cc3861df8c2b68ca10399b794e-oddball_19_4_ttf.normalised.cnf : X 38.859673, Y 56.215
+benchmarks/sat/31e843c53a76ff3961935ad55b953298-sqrt-mitern171.cnf : X 45.368961, Y 46.309
+benchmarks/sat/16c999d046885c8e51f196e60c34d966-aaai10-planning-ipc5-pathways-17-step20.cnf : X 40.004902, Y 38.377
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 14.157663, Y 22.584
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.144467, Y 0.014
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 42.337387, Y 43.936
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 1.591621, Y 0.16
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.16063, Y 0.021
+benchmarks/sat/7bdf3e5401cc263951003b569bcd689c-bv_ILA_Piccolo_BEQ_sanity_transition.cnf : X 40.525837, Y 11.265
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 1.356529, Y 6.2266
+benchmarks/sat/f6a085f3c728e53f57542e62df20e56b-crafted_n10_d6_c4_num8.cnf : X 20.255409, Y timeout
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.046891, Y 0.151504
+benchmarks/sat/1c30806c5aa9cd54bf823c20fa078243-oddball_26_5_ttf.normalised.cnf : X 32.446579, Y 40.4456
+benchmarks/sat/43687a48fb119ca61b47c2fc69a71e7d-manthey_single-ordered-initialized-w42-b8.cnf : X 12.642232, Y timeout
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.047146, Y 0.163298
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 1.739617, Y 13.2553
+benchmarks/sat/6ff70a3aaf261b35b0b072f454a756be-crafted_n10_d6_c4_num9.cnf : X 22.747477, Y timeout
+benchmarks/sat/cdf559a186b55457ce49516ec323e907-at-least-two-traffic_kkb_unknown.cnf : X 34.900928, Y timeout
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.046635, Y 0.159192
+benchmarks/sat/efc1b7cc3861df8c2b68ca10399b794e-oddball_19_4_ttf.normalised.cnf : X 7.126841, Y timeout
+benchmarks/sat/24075575c3dbd9e9eae948dd2241b029-UR-15-10p0.cnf : X 35.001575, Y timeout
+benchmarks/sat/31e843c53a76ff3961935ad55b953298-sqrt-mitern171.cnf : X 15.826179, Y timeout
+benchmarks/sat/16c999d046885c8e51f196e60c34d966-aaai10-planning-ipc5-pathways-17-step20.cnf : X 19.105654, Y timeout
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 4.099539, Y 36.7417
+benchmarks/sat/6f354fbea13b25a49f3edc1cd10c48d5-bp4_CSO_LP_FPBLE_ZR_YS.normalised.cnf : X 23.821131, Y timeout
+benchmarks/sat/77a0d54f2fb3740a9a321623c0c10f3e-tseitin_grid_n12_m12.cnf : X 0.144294, Y timeout
+benchmarks/sat/389bb0a8f3568f4bd0e71771df9093c5-BubbleVsPancakeSort_7_6.cnf : X 35.45488, Y timeout
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.046843, Y 0.158467
+benchmarks/sat/c569d4b2b2e90a1a70bd23a1169355ef-oddball_13_5_ttf.normalised.cnf : X 5.011546, Y timeout
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 8.993647, Y timeout
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 0.629429, Y 1.75162
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.059968, Y 0.18163
+benchmarks/sat/07cea7a64248a60d509368d09d3057c2-pj2013_k9.cnf : X 5.660208, Y timeout
+benchmarks/sat/ebbda8d90dfd9b6500bf932f952907a6-2018D_VexRiscv-regch0-20-p1_step.cnf : X 46.467739, Y timeout
+benchmarks/sat/16ff47a05b769ed6a04c7175cfc6da55-sqrt-mitern170.cnf : X 30.454922, Y timeout
+benchmarks/sat/7bdf3e5401cc263951003b569bcd689c-bv_ILA_Piccolo_BEQ_sanity_transition.cnf : X 1.181641, Y 51.7908
+benchmarks/sat/0aa22564d00e9716519918d84b25c4a7-sudoku-N30-12.cnf : X 34.481636, Y timeout
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 1.356529, Y 6.2266
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.046891, Y 0.151504
+benchmarks/sat/1c30806c5aa9cd54bf823c20fa078243-oddball_26_5_ttf.normalised.cnf : X 32.446579, Y 40.4456
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.047146, Y 0.163298
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 1.739617, Y 13.2553
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.046635, Y 0.159192
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 4.099539, Y 36.7417
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.046843, Y 0.158467
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 0.629429, Y 1.75162
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.059968, Y 0.18163
+benchmarks/sat/7bdf3e5401cc263951003b569bcd689c-bv_ILA_Piccolo_BEQ_sanity_transition.cnf : X 1.181641, Y 51.7908
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 1.356529, Y 1.493657
+benchmarks/sat/f6a085f3c728e53f57542e62df20e56b-crafted_n10_d6_c4_num8.cnf : X 20.255409, Y 20.272804
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.046891, Y 0.087047
+benchmarks/sat/1c30806c5aa9cd54bf823c20fa078243-oddball_26_5_ttf.normalised.cnf : X 32.446579, Y 24.972948
+benchmarks/sat/43687a48fb119ca61b47c2fc69a71e7d-manthey_single-ordered-initialized-w42-b8.cnf : X 12.642232, Y 11.227756
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.047146, Y 0.085912
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 1.739617, Y 1.893086
+benchmarks/sat/6ff70a3aaf261b35b0b072f454a756be-crafted_n10_d6_c4_num9.cnf : X 22.747477, Y 18.880745
+benchmarks/sat/cdf559a186b55457ce49516ec323e907-at-least-two-traffic_kkb_unknown.cnf : X 34.900928, Y 44.279591
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.046635, Y 0.08605
+benchmarks/sat/efc1b7cc3861df8c2b68ca10399b794e-oddball_19_4_ttf.normalised.cnf : X 7.126841, Y 6.385068
+benchmarks/sat/24075575c3dbd9e9eae948dd2241b029-UR-15-10p0.cnf : X 35.001575, Y 24.14134
+benchmarks/sat/31e843c53a76ff3961935ad55b953298-sqrt-mitern171.cnf : X 15.826179, Y 14.318908
+benchmarks/sat/16c999d046885c8e51f196e60c34d966-aaai10-planning-ipc5-pathways-17-step20.cnf : X 19.105654, Y 19.105272
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 4.099539, Y 4.093084
+benchmarks/sat/6f354fbea13b25a49f3edc1cd10c48d5-bp4_CSO_LP_FPBLE_ZR_YS.normalised.cnf : X 23.821131, Y 22.738468
+benchmarks/sat/77a0d54f2fb3740a9a321623c0c10f3e-tseitin_grid_n12_m12.cnf : X 0.144294, Y 42.104542
+benchmarks/sat/389bb0a8f3568f4bd0e71771df9093c5-BubbleVsPancakeSort_7_6.cnf : X 35.45488, Y 32.274887
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.046843, Y 0.085938
+benchmarks/sat/c569d4b2b2e90a1a70bd23a1169355ef-oddball_13_5_ttf.normalised.cnf : X 5.011546, Y 5.161285
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 8.993647, Y 10.592082
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 0.629429, Y 0.757807
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.059968, Y 0.109616
+benchmarks/sat/07cea7a64248a60d509368d09d3057c2-pj2013_k9.cnf : X 5.660208, Y timeout
+benchmarks/sat/ebbda8d90dfd9b6500bf932f952907a6-2018D_VexRiscv-regch0-20-p1_step.cnf : X 46.467739, Y timeout
+benchmarks/sat/16ff47a05b769ed6a04c7175cfc6da55-sqrt-mitern170.cnf : X 30.454922, Y 26.849253
+benchmarks/sat/7bdf3e5401cc263951003b569bcd689c-bv_ILA_Piccolo_BEQ_sanity_transition.cnf : X 1.181641, Y 15.019767
+benchmarks/sat/0aa22564d00e9716519918d84b25c4a7-sudoku-N30-12.cnf : X 34.481636, Y 29.953001
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 1.356529, Y 1.493657
+benchmarks/sat/f6a085f3c728e53f57542e62df20e56b-crafted_n10_d6_c4_num8.cnf : X 20.255409, Y 20.272804
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.046891, Y 0.087047
+benchmarks/sat/1c30806c5aa9cd54bf823c20fa078243-oddball_26_5_ttf.normalised.cnf : X 32.446579, Y 24.972948
+benchmarks/sat/43687a48fb119ca61b47c2fc69a71e7d-manthey_single-ordered-initialized-w42-b8.cnf : X 12.642232, Y 11.227756
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.047146, Y 0.085912
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 1.739617, Y 1.893086
+benchmarks/sat/6ff70a3aaf261b35b0b072f454a756be-crafted_n10_d6_c4_num9.cnf : X 22.747477, Y 18.880745
+benchmarks/sat/cdf559a186b55457ce49516ec323e907-at-least-two-traffic_kkb_unknown.cnf : X 34.900928, Y 44.279591
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.046635, Y 0.08605
+benchmarks/sat/99718c1729a8de3347a9946f1836421d-bivium-39-200-0s0-0xdcfb6ab71951500b8e460045bd45afee15c87e08b0072eb174-43.cnf : X timeout , Y 45.234707
+benchmarks/sat/efc1b7cc3861df8c2b68ca10399b794e-oddball_19_4_ttf.normalised.cnf : X 7.126841, Y 6.385068
+benchmarks/sat/24075575c3dbd9e9eae948dd2241b029-UR-15-10p0.cnf : X 35.001575, Y 24.14134
+benchmarks/sat/31e843c53a76ff3961935ad55b953298-sqrt-mitern171.cnf : X 15.826179, Y 14.318908
+benchmarks/sat/16c999d046885c8e51f196e60c34d966-aaai10-planning-ipc5-pathways-17-step20.cnf : X 19.105654, Y 19.105272
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 4.099539, Y 4.093084
+benchmarks/sat/6f354fbea13b25a49f3edc1cd10c48d5-bp4_CSO_LP_FPBLE_ZR_YS.normalised.cnf : X 23.821131, Y 22.738468
+benchmarks/sat/77a0d54f2fb3740a9a321623c0c10f3e-tseitin_grid_n12_m12.cnf : X 0.144294, Y 42.104542
+benchmarks/sat/389bb0a8f3568f4bd0e71771df9093c5-BubbleVsPancakeSort_7_6.cnf : X 35.45488, Y 32.274887
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.046843, Y 0.085938
+benchmarks/sat/c569d4b2b2e90a1a70bd23a1169355ef-oddball_13_5_ttf.normalised.cnf : X 5.011546, Y 5.161285
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 8.993647, Y 10.592082
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 0.629429, Y 0.757807
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.059968, Y 0.109616
+benchmarks/sat/16ff47a05b769ed6a04c7175cfc6da55-sqrt-mitern170.cnf : X 30.454922, Y 26.849253
+benchmarks/sat/7bdf3e5401cc263951003b569bcd689c-bv_ILA_Piccolo_BEQ_sanity_transition.cnf : X 1.181641, Y 15.019767
+benchmarks/sat/0aa22564d00e9716519918d84b25c4a7-sudoku-N30-12.cnf : X 34.481636, Y 29.953001
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 8.360976, Y 1.462
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.083708, Y 0.015
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.093386, Y 0.014
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 11.973758, Y 1.726
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.093614, Y 0.014
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 44.958652, Y 5.765
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.083378, Y 0.015
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 40.461628, Y 4.454
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 1.424578, Y 0.158
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.109207, Y 0.021
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 8.360976, Y 1.462
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.083708, Y 0.015
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.093386, Y 0.014
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 11.973758, Y 1.726
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.093614, Y 0.014
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 44.958652, Y 5.765
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.083378, Y 0.015
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 40.461628, Y 4.454
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 1.424578, Y 0.158
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.109207, Y 0.021
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 5.010462, Y 9.82298
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.036563, Y 0.098708
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.036402, Y 0.107386
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 10.744353, Y 13.6998
+benchmarks/sat/6ff70a3aaf261b35b0b072f454a756be-crafted_n10_d6_c4_num9.cnf : X 58.646847, Y timeout
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.048045, Y 0.107614
+benchmarks/sat/16c999d046885c8e51f196e60c34d966-aaai10-planning-ipc5-pathways-17-step20.cnf : X 49.016254, Y timeout
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 36.603092, Y 50.7237
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.046963, Y 0.098378
+benchmarks/sat/c569d4b2b2e90a1a70bd23a1169355ef-oddball_13_5_ttf.normalised.cnf : X 23.337894, Y timeout
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 20.041626, Y 44.9156
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 1.425859, Y 1.58258
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.053086, Y 0.130207
+benchmarks/sat/07cea7a64248a60d509368d09d3057c2-pj2013_k9.cnf : X 16.688034, Y timeout
+benchmarks/sat/7bdf3e5401cc263951003b569bcd689c-bv_ILA_Piccolo_BEQ_sanity_transition.cnf : X 1.263001, Y timeout
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 5.010462, Y 9.82298
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.036563, Y 0.098708
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.036402, Y 0.107386
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 10.744353, Y 13.6998
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.048045, Y 0.107614
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 36.603092, Y 50.7237
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.046963, Y 0.098378
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 20.041626, Y 44.9156
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 1.425859, Y 1.58258
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.053086, Y 0.130207
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 5.010462, Y 2.754963
+benchmarks/sat/a0bcdaffb0ea36b678899fd86bdc7f18-arles_thres10_p10_r8186.cnf : X 0.036563, Y timeout
+benchmarks/sat/8a05f9b6bf49285e40d0a197967ea5d3-arles_thres10_p10_r7466.cnf : X 0.036402, Y timeout
+benchmarks/sat/965bc4f6691b2e5f7388aaa9ba68f768-SCPC-500-5.cnf : X 10.744353, Y timeout
+benchmarks/sat/6ff70a3aaf261b35b0b072f454a756be-crafted_n10_d6_c4_num9.cnf : X 58.646847, Y 48.618996
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.048045, Y 0.065493
+benchmarks/sat/16c999d046885c8e51f196e60c34d966-aaai10-planning-ipc5-pathways-17-step20.cnf : X 49.016254, Y timeout
+benchmarks/sat/918d9e7c2e197312517736421d728958-SCPC-500-1.cnf : X 36.603092, Y timeout
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.046963, Y 0.065613
+benchmarks/sat/c569d4b2b2e90a1a70bd23a1169355ef-oddball_13_5_ttf.normalised.cnf : X 23.337894, Y timeout
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 20.041626, Y 16.525082
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 1.425859, Y 0.727631
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.053086, Y 0.079003
+benchmarks/sat/07cea7a64248a60d509368d09d3057c2-pj2013_k9.cnf : X 16.688034, Y timeout
+benchmarks/sat/7bdf3e5401cc263951003b569bcd689c-bv_ILA_Piccolo_BEQ_sanity_transition.cnf : X 1.263001, Y timeout
+benchmarks/sat/cabfdc91f644200767df9d480d2cc53e-oddball_17_5_ttf.normalised.cnf : X 5.010462, Y 2.754963
+benchmarks/sat/6ff70a3aaf261b35b0b072f454a756be-crafted_n10_d6_c4_num9.cnf : X 58.646847, Y 48.618996
+benchmarks/sat/1a936d41e3439d602c3ddcf96458a38c-arles_thres10_p10_r8185.cnf : X 0.048045, Y 0.065493
+benchmarks/sat/efc1b7cc3861df8c2b68ca10399b794e-oddball_19_4_ttf.normalised.cnf : X timeout , Y 59.341404
+benchmarks/sat/d1c28f29dc80ff82a3e32aa47fac8b41-arles_thres10_p10_r8175.cnf : X 0.046963, Y 0.065613
+benchmarks/sat/9a839badecb20dcf505ec79eedd3753a-anbul-dated-5-15-u.cnf : X 20.041626, Y 16.525082
+benchmarks/sat/09cd83e233380d0ba1fc56cee88367b1-s38417.cnf : X 1.425859, Y 0.727631
+benchmarks/sat/abadaf0ee0e21ff1a4b0e294f13ab5ab-arles_thres10_p20_r4305.cnf : X 0.053086, Y 0.079003

@@ -1,0 +1,5 @@
+Run                 #fullysolved  PAR2  #solvedqueries
+c1-incsat           79            31.1  0
+c1-incsat-rtcheck   75            36.1  0
+c32-incsat          85            25.3  5566
+c32-incsat-rtcheck  81            29.9  8123

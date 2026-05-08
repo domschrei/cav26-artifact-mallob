@@ -1,0 +1,10 @@
+_                   overall  _        satisf.  _         unsatisf.  _
+Run                 #solved  PAR2     #solved  avgtime   #solved    avgtime
+c1-sat-mixed        11       5.38069  4        0.445882  7          0.326537
+c1-sat-monolproof   12       5.3744   4        0.800405  8          0.779824
+c1-sat-rtcheck      7        5.61201  2        1.273     5          0.130914
+c1-sat-streamlined  10       5.42538  3        0.10769   7          0.31641
+c8-sat-mixed        18       5.03795  7        0.519325  11         0.741804
+c8-sat-monolproof   15       5.21939  7        0.991082  8          0.625151
+c8-sat-rtcheck      15       5.20832  6        0.627545  9          0.78523
+c8-sat-streamlined  20       4.98905  8        1.12197   12         0.827406

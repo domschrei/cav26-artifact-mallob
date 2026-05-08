@@ -1,0 +1,3 @@
+Run      #fullysolved  PAR2  #solvedqueries
+c1-smt   70            82.8  13105
+c32-smt  102           66.5  13255
