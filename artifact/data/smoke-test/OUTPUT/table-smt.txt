@@ -1,0 +1,3 @@
+Run     #fullysolved  PAR2  #solvedqueries
+c1-smt  5             8.7   3566
+c8-smt  5             8.7   3467

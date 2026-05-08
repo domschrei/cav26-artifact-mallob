@@ -1,0 +1,3 @@
+Run        #optsolved  PAR2  avgtime  LB-score  UB-score  
+c1-maxsat  0           10    0        0         13.82
+c8-maxsat  0           10    0        0         15.141
