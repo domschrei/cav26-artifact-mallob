@@ -37,6 +37,7 @@ Requirements:
 This artifact contains the following files:
 
 * README.md : The documentation you are currently reading
+* Dockerfile : The Dockerfile that was used to produce the artifact's main Docker image
 * LICENSE.txt : MIT license
 * mallob-cav26.zip : The Mallob project, including its source code, scripts, and documentation. A snapshot of [Mallob's GitHub repository](https://github.com/domschrei/mallob)
 * mallob-cav26-img.tar : A Docker image you can readily import and enter, coming with a pre-installed and set up Mallob, diverse benchmarks, and convenience scripts for running experiments
@@ -177,7 +178,7 @@ Precisely quantifying the expected performance of the experiments is difficult s
 * `1v1-overhead-*-rtcheck.pdf` : The measured overhead should generally be lower than for monolithic proof production (`1v1-overhead-over-mixed-*-monolproof.pdf`) and be mostly independent of the scale of solving (i.e., the points are distributed similarly for the sequential vs. parallel variant).
 * `1v1-overhead-solve-vs-check-*.pdf` : The time needed for checking should be significantly lower than for solving in the sequential case. In the parallel case, checking times may be closer to the solving time.
 
-You can also compare the data and plots obtained from your runs with the sample data we provide in the artifact (`data/` directory).
+**Note:** You can also compare the data and plots obtained from your runs with the sample data we provide in the artifact (`data/` directory).
 
 
 ## Custom Experiments
@@ -222,3 +223,11 @@ You should then be able to run experiments from the base directory, e.g., via `s
 
 If you are working with a SLURM-managed HPC cluster, please consult the SLURM-specific documentation for Mallob at the sub-directory `mallob/docs/clusters.md`. Otherwise, any subsequent steps heavily depend on your hardware and system environment, which unfortunately means that we cannot provide any specific instructions for launching the distributed program. Let us know if you experience any troubles and we may be able to assist!
 
+
+## Reproducing the Docker Build
+
+To build the artifact's Docker image yourself, perform the following steps:
+
+1. Enter the provided Docker container and copy `benchmarks/` and `scripts/` to the host machine, as explained at "Benchmarks" above.
+2. Exit the Docker container.
+3. With `Dockerfile`, `benchmarks/`, and `scripts/` all available at the current working directory, execute `docker build --progress=plain -f Dockerfile -t mallob-cav26 .` (or any other Docker build command you wish to use).
