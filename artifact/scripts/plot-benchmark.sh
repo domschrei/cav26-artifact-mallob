@@ -31,89 +31,6 @@ $input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
 -title='SAT solving performance' \
 -sizex=3 -sizey=3 -o=$outputdir/sat-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
 
-# INCSAT
-input=""
-for d in $(echo $dir/*-incsat* | tr ' ' '\n' | sort -V | tac) ; do
-    input="$input $d/cdf.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
-done
-python3 scripts/plot_curves.py \
-$input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
--extend-to-right -legend-spacing=0 -no-markers \
--gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
--title='Incremental SAT performance' \
--sizex=3 -sizey=3 -o=$outputdir/incsat-cdf.pdf >> $outputdir/plotting-logs.txt
-python3 scripts/plot_curves.py \
-$input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
--extend-to-right -legend-spacing=0 -no-markers \
--gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
--title='Incremental SAT performance' \
--sizex=3 -sizey=3 -o=$outputdir/incsat-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
-
-# MAXSAT
-input=""
-for d in $(echo $dir/*-maxsat* | tr ' ' '\n' | sort -V | tac) ; do
-    input="$input $d/cdf.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
-done
-python3 scripts/plot_curves.py \
-$input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
--extend-to-right -legend-spacing=0 -no-markers \
--gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
--title='MaxSAT performance' \
--sizex=3 -sizey=3 -o=$outputdir/maxsat-cdf.pdf >> $outputdir/plotting-logs.txt
-python3 scripts/plot_curves.py \
-$input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
--extend-to-right -legend-spacing=0 -no-markers \
--gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
--title='MaxSAT performance' \
--sizex=3 -sizey=3 -o=$outputdir/maxsat-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
-
-# SMT
-input=""
-for d in $(echo $dir/*-smt* | tr ' ' '\n' | sort -V | tac) ; do
-    input="$input $d/cdf.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
-done
-python3 scripts/plot_curves.py \
-$input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
--extend-to-right -legend-spacing=0 -no-markers \
--gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
--title='SMT performance' \
--sizex=3 -sizey=3 -o=$outputdir/smt-cdf.pdf >> $outputdir/plotting-logs.txt
-python3 scripts/plot_curves.py \
-$input -xy -logx -minx=0.01 -maxx=$TIMELIM -miny=0 \
--extend-to-right -legend-spacing=0 -no-markers \
--gridx -gridy -labelx='Running time $t$ [s]' -labely='\# instances solved in $\leq$ t' \
--title='SMT performance' \
--sizex=3 -sizey=3 -o=$outputdir/smt-cdf-logscale.pdf >> $outputdir/plotting-logs.txt
-
-# MaxSAT cost progression
-for B in lb ub ; do
-input=""
-for d in $(echo $dir/*-maxsat* | tr ' ' '\n' | sort -V | tac) ; do
-    cat $d/cost-sum-progression.txt | awk '{print $1,$2}' > $d/.plot.lb
-    cat $d/cost-sum-progression.txt | awk '{print $1,$3}' > $d/.plot.ub
-    input="$input $d/.plot.$B -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
-done
-python3 scripts/plot_curves.py \
-$input -xy -minx=0 -maxx=$TIMELIM -miny=0 \
--extend-to-right -legend-spacing=0 -no-markers \
--gridx -gridy -labelx='Running time $t$ [s]' -labely='Accumulated bound quality' \
--title='MaxSAT quality progression: '$B \
--sizex=3 -sizey=3 -o=$outputdir/maxsat-quality-$B.pdf >> $outputdir/plotting-logs.txt
-done
-
-# Scheduling accumulated CDF
-input=""
-for d in $(echo $dir/*-scheduling* | tr ' ' '\n' | sort -V | tac) ; do
-    input="$input $d/cdf-accumulated.txt -l=$(echo $(basename $d) | grep -oE 'c[0-9]+-.*') "
-done
-python3 scripts/plot_curves.py \
-$input -xy -minx=0 -miny=0 -legend-spacing=0 -no-markers \
--gridx -gridy -labelx='Time since system start [s]' -labely='\# solved instances' \
--title='Multi-tasking SAT performance' \
--sizex=3 -sizey=3 -o=$outputdir/scheduling-cdf.pdf >> $outputdir/plotting-logs.txt
-
-
-
 ####################################################################################
 # TABLES
 ####################################################################################
@@ -130,61 +47,14 @@ for d in $(echo $dir/*-sat-* | tr ' ' '\n' | sort -V) ; do
 done
 ) | column -t > $outputdir/table-sat.txt
 
-# INCSAT
-(
-echo "Run #fullysolved PAR2 #solvedqueries"
-for d in $(echo $dir/*-incsat* | tr ' ' '\n' | sort -V) ; do
-    nbenchs=$(cat $d/commands.txt | wc -l)
-    cat $d/results.txt | awk '$3 < '$TIMELIM' && $2 == "SATISFIABLE" {nsat+=1; ssat+=$3}\
-      $3 < '$TIMELIM' && $2 == "UNSATISFIABLE" {nunsat+=1; sunsat+=$3}\
-      END {printf "%s %i %.1f ", "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat+nunsat, \
-      (ssat+sunsat + ('$nbenchs'-nsat-nunsat)*2*'$TIMELIM')/('$nbenchs')}'
-    cat $d/solvedqueries.txt | awk '{s+=$2} END {print s}'
-done
-) | column -t > $outputdir/table-incsat.txt
-
-# MaxSAT
-(
-echo "Run #optsolved PAR2 avgtime LB-score UB-score"
-for d in $(echo $dir/*-maxsat* | tr ' ' '\n' | sort -V) ; do
-    nbenchs=$(cat $d/commands.txt | wc -l)
-    score_lb=$(cat $d/cost-sum-progression.txt | tail -1 | awk '{print $2}')
-    score_ub=$(cat $d/cost-sum-progression.txt | tail -1 | awk '{print $3}')
-    cat $d/results.txt | awk 'BEGIN{nsat=0; ssat=0} $3 < '$TIMELIM' && ($2 == "SATISFIABLE" || $2 == "OPTIMUM_FOUND") {nsat+=1; ssat+=$3}\
-      END {print "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat, (ssat + ('$nbenchs'-nsat)*2*'$TIMELIM')/('$nbenchs'), (nsat==0)?0:(ssat/nsat), '$score_lb', '$score_ub'}'
-done
-) | column -t > $outputdir/table-maxsat.txt
-
-# SMT
-(
-echo "Run #fullysolved PAR2 #solvedqueries"
-for d in $(echo $dir/*-smt* | tr ' ' '\n' | sort -V) ; do
-    nbenchs=$(cat $d/commands.txt | wc -l)
-    cat $d/results.txt | awk '$3 < '$TIMELIM' && ($2 == "SATISFIABLE" || $2 == "UNSATISFIABLE") {nsat+=1; ssat+=$3}\
-      END {printf "%s %i %.1f ", "'$(basename $d | grep -oE 'c[0-9]+-.*')'", nsat, \
-      (ssat + ('$nbenchs'-nsat)*2*'$TIMELIM')/('$nbenchs')}'
-    cat $d/solvedqueries.txt | awk '{s+=$2} END {print s}'
-done
-) | column -t > $outputdir/table-smt.txt
-
-# Scheduling
-(
-echo "Run #introduced #solved MeanResponseTime"
-for d in $(echo $dir/*-scheduling* | tr ' ' '\n' | sort -V) ; do
-    nbenchs=$(cat $d/results.txt | wc -l)
-    nsolved=$(cat $d/results.txt | awk '$2 == "solved"' | wc -l)
-    rt=$(cat $d/results.txt | awk '$2 == "solved" {n+=1; s+=$3} END {print (n==0)?0:(s/n)}')
-    printf '%s %i %i %.1f\n' $(basename $d | grep -oE 'c[0-9]+-.*') "$nbenchs" "$nsolved" "$rt"
-done
-) | column -t > $outputdir/table-scheduling.txt
-
 ####################################################################################
 # Proof checking overheads
 ####################################################################################
 
 for d in $dir/*-sat-monolproof* ; do
-    d_mixed=$(dirname $d)/*-$(basename $d|grep -oE "c[0-9]+")-sat-mixed
+    d_unchecked=$(dirname $d)/*-$(basename $d|grep -oE "c[0-9]+")-sat-unchecked
     d_rtchk=$(dirname $d)/*-$(basename $d|grep -oE "c[0-9]+")-sat-rtcheck
+    d_impcake=$(dirname $d)/*-$(basename $d|grep -oE "c[0-9]+")-sat-impcake
 
     cat $d/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
     cat $d/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$5}' > .1v1-b
@@ -192,17 +62,29 @@ for d in $dir/*-sat-monolproof* ; do
     -h="$(basename $d)" \
     -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-solve-vs-check-$(basename $d).pdf >> $outputdir/plotting-logs.txt
 
-    cat $d_mixed/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
+    cat $d_unchecked/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
     cat $d/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3+$5}' > .1v1-b
-    python3 scripts/plot_1v1.py .1v1-a -l="Solving time w/ mixed portfolio [s]" \
+    python3 scripts/plot_1v1.py .1v1-a -l="Solving time w/ unchecked portfolio [s]" \
     .1v1-b -l="Solving + checking time [s]" -h=Monolithic \
-    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-over-mixed-$(basename $d).pdf >> $outputdir/plotting-logs.txt
+    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-over-unchecked-$(basename $d).pdf >> $outputdir/plotting-logs.txt
 
-    cat $d_mixed/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
+    cat $d_unchecked/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
     cat $d_rtchk/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-b
-    python3 scripts/plot_1v1.py .1v1-a -l="Solving time w/ mixed portfolio [s]" \
-    .1v1-b -l="Solving + checking time [s]" -h="Real-time checking" \
+    python3 scripts/plot_1v1.py .1v1-a -l="Solving time w/ unchecked portfolio [s]" \
+    .1v1-b -l="Solving + checking time [s]" -h="Real-time checking (fast)" \
     -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-$(basename $d | sed 's/monolproof/rtcheck/g').pdf >> $outputdir/plotting-logs.txt
+
+    cat $d_unchecked/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
+    cat $d_impcake/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-b
+    python3 scripts/plot_1v1.py .1v1-a -l="Solving time w/ unchecked portfolio [s]" \
+    .1v1-b -l="Solving + checking time [s]" -h="Real-time checking (ImpCake)" \
+    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-$(basename $d | sed 's/monolproof/impcake/g').pdf >> $outputdir/plotting-logs.txt
+
+    cat $d_rtchk/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-a
+    cat $d_impcake/results.txt | grep " UNSATISFIABLE " | awk '{print $1,"x",$3}' > .1v1-b
+    python3 scripts/plot_1v1.py .1v1-a -l="Solving + fast real-time checking [s]" \
+    .1v1-b -l="Solving + ImpCake checking [s]" -h="Real-time checking (fast vs. ImpCake)" \
+    -logscale -min=0.001 -T=$TIMELIM -max=$(( (3*$TIMELIM)/2 )) -o=$outputdir/1v1-overhead-$(basename $d | sed 's/monolproof/impcake/g')-over-rtchk.pdf >> $outputdir/plotting-logs.txt
 done
 
 
