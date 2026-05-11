@@ -28,7 +28,7 @@ scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=1
 
 banner_run_suite "[${scale}x] SAT solving, proof checking with ImpCake"
 BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-c$scale-sat-impcake/ \
-scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=0
+scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=0 -otfcm=0
 
 
 # Parallel setup (32 threads)
@@ -51,7 +51,7 @@ scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=1
 
 banner_run_suite "[${scale}x] SAT solving, proof checking with ImpCake"
 BENCHMARKFILE=scripts/selection-sat-smoke.txt BASEDIR=$basedir/$suite_idx-c$scale-sat-impcake/ \
-scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=0
+scripts/run-benchmark.sh -mono-app=SAT -otfc=1 -otfci=0 -otfcm=0
 
 
 banner_run_done
